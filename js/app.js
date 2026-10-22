@@ -4,8 +4,12 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // State
-  let currentLang = 'en'; // 'en' | 'ko'
+  // State (Default: Korean / 한국어)
+  let currentLang = 'ko';
+  try {
+    const saved = localStorage.getItem('ka_voter_lang');
+    if (saved === 'en' || saved === 'ko') currentLang = saved;
+  } catch (e) {}
   const quiz = new VoterQuizEngine();
 
   // DOM Elements
@@ -222,6 +226,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- LANGUAGE MANAGEMENT ---
   function updateLanguage(lang) {
     currentLang = lang;
+    try {
+      localStorage.setItem('ka_voter_lang', lang);
+    } catch (e) {}
     const t = UI_TEXT[lang];
 
     if (lang === 'ko') {
@@ -960,8 +967,8 @@ document.addEventListener('DOMContentLoaded', () => {
     pledgeCertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 
-  // Initial Load
-  updateLanguage('en');
+  // Initial Load (Default: Korean / 한국어)
+  updateLanguage(currentLang);
   renderPlatformTable();
   renderCandidates('all');
   renderZipResult('95051');
