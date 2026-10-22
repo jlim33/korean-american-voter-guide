@@ -14,9 +14,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css?v=2.2">
+  <link rel="stylesheet" href="css/styles.css?v=2.3">
 </head>
 <body class="lang-ko">
+
+  <!-- Top Powered By Banner -->
+  <aside class="top-powered-banner" id="powered-banner" aria-label="Attribution Notice">
+    <div class="container top-powered-inner">
+      <span class="powered-sparkle" aria-hidden="true">🌐</span>
+      <span>powered by <a href="https://www.ubiquitarian.info" target="_blank" rel="noopener noreferrer" class="powered-link">ubiquitarian.info</a></span>
+      <span class="powered-sep" aria-hidden="true">•</span>
+      <a href="https://www.ubiquitarian.info" target="_blank" rel="noopener noreferrer" class="powered-sublink">
+        <span>www.ubiquitarian.info</span>
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+        </svg>
+      </a>
+    </div>
+  </aside>
 
   <!-- Site Header -->
   <header class="site-header" id="site-header">
@@ -728,7 +743,12 @@
       </div>
 
       <div class="footer-bottom">
-        <div id="footer-copy">© 2026 Korean American Voter Hub. Dedicated to the Korean American Community. Nonpartisan Educational Resource.</div>
+        <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+          <div id="footer-copy">© 2026 Korean American Voter Hub. Dedicated to the Korean American Community. Nonpartisan Educational Resource.</div>
+          <div style="font-size: 0.82rem; color: var(--text-muted);">
+            powered by <a href="https://www.ubiquitarian.info" target="_blank" rel="noopener noreferrer" style="color: #60a5fa; text-decoration: underline; font-weight: 600;">ubiquitarian.info</a> (<a href="https://www.ubiquitarian.info" target="_blank" rel="noopener noreferrer" style="color: #60a5fa;">www.ubiquitarian.info</a>)
+          </div>
+        </div>
         <div style="display: flex; gap: 1rem;">
           <a href="#hero" style="color: var(--color-blue);" id="btn-back-top">↑ Top</a>
         </div>
@@ -737,8 +757,8 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/data.js?v=2.2"></script>
-  <script src="js/quiz.js?v=2.2"></script>
-  <script src="js/app.js?v=2.2"></script>
+  <script src="js/data.js?v=2.3"></script>
+  <script src="js/quiz.js?v=2.3"></script>
+  <script src="js/app.js?v=2.3"></script>
 </body>
 </html>

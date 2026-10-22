@@ -114,6 +114,96 @@ button {
   padding: 0 1.5rem;
 }
 
+/* Top Powered By Banner */
+.top-powered-banner {
+  background: linear-gradient(90deg, rgba(30, 27, 75, 0.95) 0%, rgba(30, 58, 138, 0.95) 50%, rgba(49, 46, 129, 0.95) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.5rem 1rem;
+  font-size: 0.84rem;
+  color: #e2e8f0;
+  text-align: center;
+  position: relative;
+  z-index: 101;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .top-powered-banner {
+  background: linear-gradient(90deg, #eff6ff 0%, #e0e7ff 50%, #eff6ff 100%);
+  border-bottom: 1px solid rgba(37, 99, 235, 0.15);
+  color: #1e293b;
+}
+
+.top-powered-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-weight: 500;
+}
+
+.powered-sparkle {
+  display: inline-block;
+  font-size: 0.9rem;
+}
+
+.powered-link {
+  color: #60a5fa;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: var(--transition-fast);
+}
+
+[data-theme="light"] .powered-link {
+  color: #2563eb;
+}
+
+.powered-link:hover {
+  color: #93c5fd;
+  text-decoration: none;
+}
+
+[data-theme="light"] .powered-link:hover {
+  color: #1d4ed8;
+}
+
+.powered-sep {
+  opacity: 0.4;
+  font-size: 0.75rem;
+}
+
+.powered-sublink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #93c5fd;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.76rem;
+  transition: var(--transition-fast);
+}
+
+[data-theme="light"] .powered-sublink {
+  color: #1d4ed8;
+  background: rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.powered-sublink:hover {
+  background: rgba(59, 130, 246, 0.25);
+  color: #ffffff;
+  border-color: #60a5fa;
+}
+
+[data-theme="light"] .powered-sublink:hover {
+  background: #2563eb;
+  color: #ffffff;
+}
+
 /* Header & Navigation */
 .site-header {
   position: sticky;
