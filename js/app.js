@@ -347,7 +347,64 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentCandFilter = 'all';
   let currentZipQuery = '95051';
 
-  // --- CANDIDATE POLICIES RENDERING ---
+  // Helper: Generate candidate card HTML
+  function generateCandidateCardHtml(cand, contextBadge = '') {
+    const avatarEmoji = cand.party === 'dem' ? '🔵' : '🔴';
+    const partyPill = cand.party === 'dem' 
+      ? (currentLang === 'ko' ? '민주당' : 'Democrat') 
+      : (currentLang === 'ko' ? '공화당' : 'Republican');
+
+    const topicTitles = {
+      affirmative_action: currentLang === 'ko' ? '대입 입시 & 능력주의' : 'Affirmative Action & Merit',
+      public_safety: currentLang === 'ko' ? '치안 & 상점 절도(Prop 36)' : 'Public Safety & Retail Crime',
+      small_business_tax: currentLang === 'ko' ? '소상공인 세제 & 규제' : 'Small Business Taxes & Wages',
+      us_korea_alliance: currentLang === 'ko' ? '한미동맹 & 대북 억제' : 'U.S.–ROK Alliance & Defense',
+      immigration_reform: currentLang === 'ko' ? '이민 정책 & DACA' : 'Immigration & Dreamers'
+    };
+
+    let stancesHtml = '';
+    for (const [topicKey, stanceData] of Object.entries(cand.stances)) {
+      const topicLabel = topicTitles[topicKey] || topicKey;
+      const verdict = currentLang === 'ko' ? stanceData.stanceKo : stanceData.stanceEn;
+      const detail = currentLang === 'ko' ? stanceData.detailKo : stanceData.detailEn;
+
+      stancesHtml += `
+        <div class="stance-pill-box">
+          <div class="stance-topic-header">
+            <span class="stance-topic-title">${topicLabel}</span>
+            <span class="stance-verdict-tag">${verdict}</span>
+          </div>
+          <p class="stance-detail-text">${detail}</p>
+        </div>
+      `;
+    }
+
+    return `
+      <div class="candidate-card ${cand.party}">
+        <div class="candidate-header">
+          <div class="candidate-avatar">${avatarEmoji}</div>
+          <div class="candidate-info">
+            <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.2rem;">
+              <span class="candidate-race-badge">${currentLang === 'ko' ? cand.raceKo : cand.raceEn}</span>
+              <span class="party-badge-pill" style="font-size: 0.72rem; padding: 0.15rem 0.5rem;">${partyPill}</span>
+              ${contextBadge ? `<span style="font-size: 0.72rem; padding: 0.15rem 0.5rem; border-radius: var(--radius-full); background: rgba(59, 130, 246, 0.15); color: #60a5fa; font-weight: 700;">${contextBadge}</span>` : ''}
+            </div>
+            <h4>${currentLang === 'ko' ? cand.nameKo : cand.nameEn}</h4>
+            <div class="candidate-tagline">${currentLang === 'ko' ? cand.taglineKo : cand.taglineEn}</div>
+          </div>
+        </div>
+        <p class="candidate-bio">${currentLang === 'ko' ? cand.bioKo : cand.bioEn}</p>
+        <div class="candidate-stances-list">
+          <h5 style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.25rem;">
+            ${currentLang === 'ko' ? '주요 쟁점별 공식 입장' : 'Official Issue Stances on Controversies'}
+          </h5>
+          ${stancesHtml}
+        </div>
+      </div>
+    `;
+  }
+
+  // --- CANDIDATE POLICIES RENDERING (Main Hub) ---
   function renderCandidates(filter = 'all') {
     currentCandFilter = filter;
     const container = document.getElementById('candidates-grid-container');
@@ -364,60 +421,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return true;
     });
 
-    const topicTitles = {
-      affirmative_action: currentLang === 'ko' ? '대입 입시 & 능력주의' : 'Affirmative Action & Merit',
-      public_safety: currentLang === 'ko' ? '치안 & 상점 절도(Prop 36)' : 'Public Safety & Retail Crime',
-      small_business_tax: currentLang === 'ko' ? '소상공인 세제 & 규제' : 'Small Business Taxes & Wages',
-      us_korea_alliance: currentLang === 'ko' ? '한미동맹 & 대북 억제' : 'U.S.–ROK Alliance & Defense',
-      immigration_reform: currentLang === 'ko' ? '이민 정책 & DACA' : 'Immigration & Dreamers'
-    };
-
     filtered.forEach(cand => {
-      const card = document.createElement('div');
-      card.className = `candidate-card ${cand.party}`;
-
-      const avatarEmoji = cand.party === 'dem' ? '🔵' : '🔴';
-      const partyPill = cand.party === 'dem' ? (currentLang === 'ko' ? '민주당' : 'Democrat') : (currentLang === 'ko' ? '공화당' : 'Republican');
-
-      let stancesHtml = '';
-      for (const [topicKey, stanceData] of Object.entries(cand.stances)) {
-        const topicLabel = topicTitles[topicKey] || topicKey;
-        const verdict = currentLang === 'ko' ? stanceData.stanceKo : stanceData.stanceEn;
-        const detail = currentLang === 'ko' ? stanceData.detailKo : stanceData.detailEn;
-
-        stancesHtml += `
-          <div class="stance-pill-box">
-            <div class="stance-topic-header">
-              <span class="stance-topic-title">${topicLabel}</span>
-              <span class="stance-verdict-tag">${verdict}</span>
-            </div>
-            <p class="stance-detail-text">${detail}</p>
-          </div>
-        `;
-      }
-
-      card.innerHTML = `
-        <div class="candidate-header">
-          <div class="candidate-avatar">${avatarEmoji}</div>
-          <div class="candidate-info">
-            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.2rem;">
-              <span class="candidate-race-badge">${currentLang === 'ko' ? cand.raceKo : cand.raceEn}</span>
-              <span class="party-badge-pill" style="font-size: 0.72rem; padding: 0.15rem 0.5rem;">${partyPill}</span>
-            </div>
-            <h4>${currentLang === 'ko' ? cand.nameKo : cand.nameEn}</h4>
-            <div class="candidate-tagline">${currentLang === 'ko' ? cand.taglineKo : cand.taglineEn}</div>
-          </div>
-        </div>
-        <p class="candidate-bio">${currentLang === 'ko' ? cand.bioKo : cand.bioEn}</p>
-        <div class="candidate-stances-list">
-          <h5 style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.25rem;">
-            ${currentLang === 'ko' ? '주요 쟁점별 공식 입장' : 'Official Issue Stances on Controversies'}
-          </h5>
-          ${stancesHtml}
-        </div>
-      `;
-
-      container.appendChild(card);
+      container.insertAdjacentHTML('beforeend', generateCandidateCardHtml(cand));
     });
   }
 
@@ -438,15 +443,49 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!container) return;
 
     const zipList = VOTER_DATA.bayAreaZipCodes || [];
-    const qLower = currentZipQuery.toLowerCase();
+    const cleanZip = currentZipQuery.replace(/[^\w\s]/gi, '').trim();
+    const qLower = cleanZip.toLowerCase();
 
-    // Find match by 5-digit zip or city name
-    const match = zipList.find(z => z.zip === currentZipQuery || z.city.toLowerCase().includes(qLower));
+    // Sync active state on quick chip buttons
+    const zipChips = document.querySelectorAll('.chip-btn');
+    zipChips.forEach(chip => {
+      if (chip.dataset.zip === currentZipQuery || chip.dataset.zip === cleanZip) {
+        chip.classList.add('active');
+      } else {
+        chip.classList.remove('active');
+      }
+    });
+
+    // 1. Direct match by 5-digit zip or city name
+    const match = zipList.find(z => z.zip === cleanZip || z.city.toLowerCase().includes(qLower));
 
     if (match) {
       const hubText = currentLang === 'ko' ? match.koreanHubKo : match.koreanHubEn;
       const centerText = currentLang === 'ko' ? match.voteCenterKo : match.voteCenterEn;
       const dropText = currentLang === 'ko' ? match.dropBoxKo : match.dropBoxEn;
+      const ballotNote = currentLang === 'ko' ? match.ballotNoteKo : match.ballotNoteEn;
+
+      // Resolve candidate list for this zip
+      const allCands = VOTER_DATA.candidates || [];
+      const candIds = match.candidateIds && match.candidateIds.length > 0 
+        ? match.candidateIds 
+        : ['schiff', 'garvey', 'liccardo', 'low'];
+
+      const candObjects = candIds
+        .map(id => allCands.find(c => c.id === id))
+        .filter(Boolean);
+
+      const candidateCardsHtml = candObjects
+        .map(c => {
+          let badge = '';
+          if (c.id === 'schiff' || c.id === 'garvey') {
+            badge = currentLang === 'ko' ? '캘리포니아 전역 공통' : 'CA Statewide Ballot';
+          } else if (c.id === 'liccardo' || c.id === 'low') {
+            badge = currentLang === 'ko' ? '실리콘밸리 하원' : 'Silicon Valley CA-16';
+          }
+          return generateCandidateCardHtml(c, badge);
+        })
+        .join('');
 
       container.innerHTML = `
         <div class="zip-result-header">
@@ -491,20 +530,118 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>
 
-        <div style="background: rgba(59, 130, 246, 0.08); border-radius: var(--radius-sm); padding: 0.85rem 1rem; border-left: 3px solid #3b82f6; font-size: 0.85rem;">
+        <div style="background: rgba(59, 130, 246, 0.08); border-radius: var(--radius-sm); padding: 0.85rem 1rem; border-left: 3px solid #3b82f6; font-size: 0.85rem; margin-bottom: 1.5rem;">
           <strong style="color: #60a5fa;">${currentLang === 'ko' ? '한국어 통역 및 투표용지 지원:' : 'Language Access Rights:'}</strong> 
           <span style="color: var(--text-secondary);">${match.languageSupport}</span>
         </div>
+
+        <!-- CANDIDATES ON BALLOT FOR THIS ZIP CODE -->
+        <div class="zip-candidates-section" style="margin-top: 2rem; border-top: 1px solid var(--border-color); padding-top: 1.75rem;">
+          <div class="zip-cand-header-box" style="margin-bottom: 1.5rem;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 0.35rem;">
+              <div style="display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 700; color: #60a5fa; text-transform: uppercase; letter-spacing: 0.05em;">
+                <span>🗳️</span>
+                <span>${currentLang === 'ko' ? '내 투표용지 후보자 및 핵심 쟁점별 공약' : 'Candidates on Your Ballot & Issue Stances'}</span>
+              </div>
+              <span class="zip-ballot-race-tag" style="background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); font-size: 0.78rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: var(--radius-full);">
+                ${currentLang === 'ko' ? '선거구 맞춤 후보자' : 'Local Ballot Matches'}
+              </span>
+            </div>
+            <h3 style="font-size: 1.5rem; font-weight: 800; margin: 0 0 0.35rem; color: var(--text-primary);">
+              ${currentLang === 'ko' ? `${match.city} (우편번호 ${match.zip}) 유권자 투표용지 후보` : `Key Candidates for ${match.city} (Zip: ${match.zip}) Voters`}
+            </h3>
+            <p style="color: var(--text-secondary); font-size: 0.88rem; margin: 0;">
+              ${ballotNote}
+            </p>
+          </div>
+
+          <div class="candidates-grid">
+            ${candidateCardsHtml}
+          </div>
+
+          <div style="margin-top: 1.75rem; padding: 1.15rem 1.25rem; background: var(--bg-surface); border: 1px dashed var(--border-color); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <strong style="color: var(--text-primary); font-size: 0.9rem;">
+                ${currentLang === 'ko' ? '🇺🇸 한국계 대표 의원(영 김, 앤디 김)의 정책도 확인해 보세요' : '🇺🇸 Want to view Korean American leaders (Young Kim, Andy Kim)?'}
+              </strong>
+              <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.2rem;">
+                ${currentLang === 'ko' ? '초당적으로 활약 중인 대표적 한국계 연방 의원들의 공약을 비교할 수 있습니다.' : 'Compare issue stances of prominent Korean American national lawmakers.'}
+              </div>
+            </div>
+            <a href="#candidates-hub" class="btn-secondary" style="font-size: 0.82rem; padding: 0.45rem 0.9rem;">
+              <span>${currentLang === 'ko' ? '전체 후보 매트릭스 보기' : 'View Full Candidate Matrix'}</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </div>
       `;
     } else {
+      // 2. Generic California zip code detection (starts with 90-96)
+      const isCaZip = /^9[0-6]\d{3}$/.test(cleanZip);
+      const allCands = VOTER_DATA.candidates || [];
+      const candObjects = isCaZip 
+        ? [allCands.find(c => c.id === 'schiff'), allCands.find(c => c.id === 'garvey'), allCands.find(c => c.id === 'liccardo'), allCands.find(c => c.id === 'low')].filter(Boolean)
+        : allCands.slice(0, 4);
+
+      const candidateCardsHtml = candObjects
+        .map(c => generateCandidateCardHtml(c, isCaZip ? (currentLang === 'ko' ? '캘리포니아 후보' : 'CA Candidate') : ''))
+        .join('');
+
       container.innerHTML = `
-        <div style="text-align: center; padding: 2rem 1rem;">
-          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔍</div>
-          <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">
-            ${currentLang === 'ko' ? `"${currentZipQuery}"에 대한 검색 결과가 없습니다.` : `No direct record found for "${currentZipQuery}".`}
-          </h4>
-          <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 1.5rem; font-size: 0.9rem;">
-            ${currentLang === 'ko' ? '베이지역 내 5자리 우편번호(예: 95051, 95014, 94539, 94609, 94118) 또는 대표 도시 이름을 입력해 보세요.' : 'Try entering a 5-digit Bay Area zip (e.g., 95051, 95014, 94539, 94609, 94118) or click one of the quick chips above.'}
+        <div class="zip-result-header">
+          <div class="zip-title-group">
+            <h3>📍 ${isCaZip ? `California Voter (Zip: ${cleanZip})` : `Voter Guide (Zip: ${cleanZip || currentZipQuery})`}</h3>
+            <div class="zip-hub-badge">
+              <span>🇺🇸</span>
+              <span>${isCaZip ? (currentLang === 'ko' ? '캘리포니아 등록 유권자' : 'California Registered Voter') : (currentLang === 'ko' ? '전국 한인 유권자' : 'U.S. Voter Hub')}</span>
+            </div>
+          </div>
+          <a href="https://voterstatus.sos.ca.gov/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">
+            <span>${currentLang === 'ko' ? '캘리포니아 공식 유권자 포털' : 'Official CA Voter Portal'}</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+            </svg>
+          </a>
+        </div>
+
+        <div style="background: rgba(59, 130, 246, 0.08); border-radius: var(--radius-sm); padding: 1rem 1.25rem; border-left: 3px solid #3b82f6; font-size: 0.9rem; margin-bottom: 1.5rem;">
+          <strong style="color: #60a5fa;">${isCaZip ? (currentLang === 'ko' ? '캘리포니아 전역 공통 투표 안내:' : 'California Statewide Ballot Notice:') : (currentLang === 'ko' ? '안내:' : 'Notice:')}</strong>
+          <span style="color: var(--text-secondary); margin-left: 0.35rem;">
+            ${isCaZip 
+              ? (currentLang === 'ko' 
+                  ? `입력하신 우편번호 <strong>${cleanZip}</strong>는 캘리포니아 관할입니다. 캘리포니아주 모든 유권자의 투표용지에는 <strong>연방 상원의원 선거 (아담 쉬프 vs 스티브 가비)</strong>가 공통으로 포함됩니다. 아래에서 주요 후보들의 쟁점별 입장을 확인하세요.`
+                  : `Your zip code <strong>${cleanZip}</strong> is in California. All registered California voters vote on the statewide <strong>U.S. Senate race (Adam Schiff vs Steve Garvey)</strong>. See official candidate stances below:`)
+              : (currentLang === 'ko'
+                  ? `"${currentZipQuery}"에 대한 특정 베이지역 투표소 정보는 없지만, 아래에서 연방 상원 및 핵심 선거구 후보자들의 쟁점별 공약을 바로 확인하실 수 있습니다.`
+                  : `While specific local voting center data for "${currentZipQuery}" was not found, the key federal candidates and their policy stances are shown below:`)}
+          </span>
+        </div>
+
+        <!-- CANDIDATES DISPLAY -->
+        <div class="zip-candidates-section" style="margin-top: 1rem;">
+          <div class="zip-cand-header-box" style="margin-bottom: 1.5rem;">
+            <div style="display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 700; color: #60a5fa; text-transform: uppercase; margin-bottom: 0.35rem;">
+              <span>🗳️</span>
+              <span>${currentLang === 'ko' ? '주요 후보자 쟁점별 정책 및 정견' : 'Key Candidate Stances on Controversies'}</span>
+            </div>
+            <h3 style="font-size: 1.45rem; font-weight: 800; margin: 0 0 0.35rem; color: var(--text-primary);">
+              ${currentLang === 'ko' ? '캘리포니아 및 베이지역 핵심 후보 정견 비교' : 'Featured Candidates on Your California Ballot'}
+            </h3>
+            <p style="color: var(--text-secondary); font-size: 0.88rem; margin: 0;">
+              ${currentLang === 'ko' ? '어퍼머티브 액션, 상점 절도(Prop 36), 소상공인 감세, 한미동맹, 이민 등 5대 쟁점에 대한 공식 정견입니다.' : 'Official stances on Affirmative Action, Retail Theft (Prop 36), Taxes, US-ROK Alliance & Immigration.'}
+            </p>
+          </div>
+
+          <div class="candidates-grid">
+            ${candidateCardsHtml}
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; text-align: center;">
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.75rem;">
+            ${currentLang === 'ko' ? '베이지역 대표 10개 한인 밀집지 빠른 검색:' : 'Quickly jump to top Bay Area Korean hubs:'}
           </p>
           <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.65rem;">
             <a href="https://rovservices.sccgov.org/" target="_blank" rel="noopener" class="btn-control">Santa Clara County ROV</a>

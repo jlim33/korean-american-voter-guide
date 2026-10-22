@@ -1406,6 +1406,13 @@ button {
   color: #ffffff;
 }
 
+.chip-btn.active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.4);
+}
+
 /* Zip Result Display */
 .zip-result-display {
   background: var(--bg-card);

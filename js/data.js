@@ -420,7 +420,10 @@ const VOTER_DATA = {
       dropBoxEn: "Lawrence Square Shopping Center / Moonlite Plaza",
       dropBoxKo: "로렌스 스퀘어 쇼핑센터 / 문라이트 플라자 투표함",
       countyRovUrl: "https://rovservices.sccgov.org/",
-      languageSupport: "Korean (한국어), English, Spanish, Vietnamese, Chinese, Tagalog"
+      languageSupport: "Korean (한국어), English, Spanish, Vietnamese, Chinese, Tagalog",
+      candidateIds: ["schiff", "garvey", "liccardo", "low"],
+      ballotNoteEn: "California U.S. Senate ballot (Schiff vs Garvey) + Silicon Valley Congressional race (Liccardo vs Low)",
+      ballotNoteKo: "캘리포니아 연방 상원 투표 (쉬프 vs 가비) + 실리콘밸리 핵심 하원 선거 (리카르도 vs 로우)"
     },
     {
       zip: "95014",
@@ -436,7 +439,10 @@ const VOTER_DATA = {
       dropBoxEn: "De Anza College Registration Plaza",
       dropBoxKo: "디 안자 칼리지 등록 플라자 투표함",
       countyRovUrl: "https://rovservices.sccgov.org/",
-      languageSupport: "Korean (한국어), English, Chinese, Spanish, Vietnamese"
+      languageSupport: "Korean (한국어), English, Chinese, Spanish, Vietnamese",
+      candidateIds: ["liccardo", "low", "schiff", "garvey"],
+      ballotNoteEn: "CA-16 U.S. House ballot (Liccardo vs Low) + California U.S. Senate ballot (Schiff vs Garvey)",
+      ballotNoteKo: "CA-16 연방 하원 투표 (리카르도 vs 로우) + 캘리포니아 연방 상원 투표 (쉬프 vs 가비)"
     },
     {
       zip: "95129",
@@ -452,7 +458,10 @@ const VOTER_DATA = {
       dropBoxEn: "Westgate Center Parking Plaza Drop Box",
       dropBoxKo: "웨스트게이트 센터 야외 공식 드롭박스",
       countyRovUrl: "https://rovservices.sccgov.org/",
-      languageSupport: "Korean, English, Vietnamese, Spanish, Chinese"
+      languageSupport: "Korean, English, Vietnamese, Spanish, Chinese",
+      candidateIds: ["liccardo", "low", "schiff", "garvey"],
+      ballotNoteEn: "CA-16 U.S. House ballot (Liccardo vs Low) + California U.S. Senate ballot (Schiff vs Garvey)",
+      ballotNoteKo: "CA-16 연방 하원 투표 (리카르도 vs 로우) + 캘리포니아 연방 상원 투표 (쉬프 vs 가비)"
     },
     {
       zip: "94086",
@@ -468,7 +477,10 @@ const VOTER_DATA = {
       dropBoxEn: "Sunnyvale Heritage Park Drop Box",
       dropBoxKo: "서니베일 헤리티지 파크 공식 드롭박스",
       countyRovUrl: "https://rovservices.sccgov.org/",
-      languageSupport: "Korean, English, Spanish, Chinese, Tagalog"
+      languageSupport: "Korean, English, Spanish, Chinese, Tagalog",
+      candidateIds: ["schiff", "garvey", "liccardo", "low"],
+      ballotNoteEn: "California U.S. Senate ballot (Schiff vs Garvey) + Silicon Valley key Congressional race (Liccardo vs Low)",
+      ballotNoteKo: "캘리포니아 연방 상원 투표 (쉬프 vs 가비) + 실리콘밸리 핵심 하원 선거 (리카르도 vs 로우)"
     },
     {
       zip: "94539",
@@ -484,7 +496,10 @@ const VOTER_DATA = {
       dropBoxEn: "Mission San Jose Community Center",
       dropBoxKo: "미션 산호세 커뮤니티 센터 공식 투표함",
       countyRovUrl: "https://www.acgov.org/rov/",
-      languageSupport: "Korean, English, Chinese, Tagalog, Vietnamese, Spanish"
+      languageSupport: "Korean, English, Chinese, Tagalog, Vietnamese, Spanish",
+      candidateIds: ["schiff", "garvey", "liccardo", "low"],
+      ballotNoteEn: "California U.S. Senate ballot (Schiff vs Garvey) + Bay Area Congressional candidate profiles",
+      ballotNoteKo: "캘리포니아 연방 상원 투표 (쉬프 vs 가비) + 베이지역 주요 연방 하원 후보 공약"
     },
     {
       zip: "94609",
@@ -500,7 +515,10 @@ const VOTER_DATA = {
       dropBoxEn: "Koreatown Telegraph Community Plaza Drop Box",
       dropBoxKo: "코리아타운 텔레그래프 플라자 공식 드롭박스",
       countyRovUrl: "https://www.acgov.org/rov/",
-      languageSupport: "Korean, English, Spanish, Chinese, Vietnamese"
+      languageSupport: "Korean, English, Spanish, Chinese, Vietnamese",
+      candidateIds: ["schiff", "garvey", "liccardo", "low"],
+      ballotNoteEn: "California U.S. Senate ballot (Schiff vs Garvey) + Bay Area Congressional candidate profiles",
+      ballotNoteKo: "캘리포니아 연방 상원 투표 (쉬프 vs 가비) + 베이지역 주요 연방 하원 후보 공약"
     },
     {
       zip: "94118",
@@ -516,7 +534,10 @@ const VOTER_DATA = {
       dropBoxEn: "Richmond Branch Library (9th & Geary)",
       dropBoxKo: "리치몬드 도서관 (9번가 & 기어리) 공식 드롭박스",
       countyRovUrl: "https://sfelections.sfgov.org/",
-      languageSupport: "Korean, English, Chinese, Spanish, Filipino"
+      languageSupport: "Korean, English, Chinese, Spanish, Filipino",
+      candidateIds: ["schiff", "garvey", "liccardo", "low"],
+      ballotNoteEn: "California U.S. Senate ballot (Schiff vs Garvey) + Bay Area Congressional candidate profiles",
+      ballotNoteKo: "캘리포니아 연방 상원 투표 (쉬프 vs 가비) + 베이지역 주요 연방 하원 후보 공약"
     },
     {
       zip: "94582",
@@ -532,7 +553,10 @@ const VOTER_DATA = {
       dropBoxEn: "San Ramon City Hall Central Drop Box",
       dropBoxKo: "산라몬 시청 중앙 공식 드롭박스",
       countyRovUrl: "https://www.contracostavote.gov/",
-      languageSupport: "English, Spanish, Chinese, Korean translation available upon request"
+      languageSupport: "English, Spanish, Chinese, Korean translation available upon request",
+      candidateIds: ["schiff", "garvey", "liccardo", "low"],
+      ballotNoteEn: "California U.S. Senate ballot (Schiff vs Garvey) + Bay Area Congressional candidate profiles",
+      ballotNoteKo: "캘리포니아 연방 상원 투표 (쉬프 vs 가비) + 베이지역 주요 연방 하원 후보 공약"
     },
     {
       zip: "94401",
@@ -548,7 +572,10 @@ const VOTER_DATA = {
       dropBoxEn: "San Mateo Main Library Drop Box",
       dropBoxKo: "샌마테오 메인 도서관 공식 드롭박스",
       countyRovUrl: "https://www.smcacre.gov/elections",
-      languageSupport: "English, Spanish, Chinese, Korean, Tagalog"
+      languageSupport: "English, Spanish, Chinese, Korean, Tagalog",
+      candidateIds: ["schiff", "garvey", "liccardo", "low"],
+      ballotNoteEn: "California U.S. Senate ballot (Schiff vs Garvey) + Peninsula / Silicon Valley key race (Liccardo vs Low)",
+      ballotNoteKo: "캘리포니아 연방 상원 투표 (쉬프 vs 가비) + 실리콘밸리 핵심 하원 선거 (리카르도 vs 로우)"
     },
     {
       zip: "94301",
@@ -564,7 +591,10 @@ const VOTER_DATA = {
       dropBoxEn: "Palo Alto City Hall Drop Box",
       dropBoxKo: "팔로알토 시청 앞 공식 투표함",
       countyRovUrl: "https://rovservices.sccgov.org/",
-      languageSupport: "Korean, English, Chinese, Spanish"
+      languageSupport: "Korean, English, Chinese, Spanish",
+      candidateIds: ["liccardo", "low", "schiff", "garvey"],
+      ballotNoteEn: "CA-16 U.S. House ballot (Liccardo vs Low) + California U.S. Senate ballot (Schiff vs Garvey)",
+      ballotNoteKo: "CA-16 연방 하원 투표 (리카르도 vs 로우) + 캘리포니아 연방 상원 투표 (쉬프 vs 가비)"
     }
   ],
 
