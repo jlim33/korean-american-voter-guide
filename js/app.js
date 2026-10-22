@@ -680,13 +680,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Initial Load
-  updateLanguage('en');
-  renderPlatformTable();
-  renderCandidates('all');
-  renderZipResult('95051');
-});
-
   langToggleBtn.addEventListener('click', () => {
     updateLanguage(currentLang === 'en' ? 'ko' : 'en');
   });
@@ -970,4 +963,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initial Load
   updateLanguage('en');
   renderPlatformTable();
+  renderCandidates('all');
+  renderZipResult('95051');
 });
