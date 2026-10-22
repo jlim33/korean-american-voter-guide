@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Korean American Voter Hub | 재미 한인 유권자 나침반 & 투표 가이드</title>
+  <meta name="description" content="A nonpartisan, bilingual civic empowerment platform helping Korean American voters navigate controversial issues, understand political platforms, and exercise their constitutional right to vote.">
+  <meta name="keywords" content="Korean American voting, 재미 한인 유권자, voting guide, political compass, Korean ballot, Section 203, civic engagement">
+  <link rel="canonical" href="https://koreanamericanvoter.org/">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="lang-en">
+
+  <!-- Site Header -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-wrap">
+      <a href="#hero" class="brand" id="brand-logo" aria-label="Korean American Voter Hub">
+        <div class="brand-emblem" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <div class="brand-title">
+          <span class="brand-main" id="brand-text-main">KA Voter Hub</span>
+          <span class="brand-sub" id="brand-text-sub">한인 유권자 나침반</span>
+        </div>
+      </a>
+
+      <div class="nav-controls">
+        <!-- Language Switcher -->
+        <button type="button" class="btn-control" id="btn-lang-toggle" aria-label="Switch Language">
+          <span aria-hidden="true">🌐</span>
+          <span id="lang-toggle-text">한국어</span>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button type="button" class="btn-control" id="btn-theme-toggle" aria-label="Toggle Theme">
+          <span id="theme-toggle-icon" aria-hidden="true">🌙</span>
+        </button>
+
+        <!-- Quick Jump to Quiz -->
+        <a href="#quiz-app" class="btn-primary" id="btn-nav-quiz">
+          <span id="nav-quiz-text">Start Quiz</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-text-col">
+          <div class="hero-badge" id="hero-badge">
+            <span class="pulse-dot"></span>
+            <span id="hero-badge-text">Nonpartisan Civic Voter Empowerment</span>
+          </div>
+
+          <h1 class="hero-title" id="hero-title">
+            Your Voice, Your Heritage: <br>
+            <span class="text-gradient" id="hero-title-highlight">Vote With Clarity & Power</span>
+          </h1>
+
+          <p class="hero-description" id="hero-desc">
+            Korean Americans hold pivotal influence in elections across America. From small business vitality and academic meritocracy to public safety and the U.S.–Korea alliance, explore where your personal values align—and claim your power at the ballot box.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#quiz-app" class="btn-primary" id="btn-hero-start">
+              <span id="hero-btn-quiz">Take 3-Minute Issues Quiz</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+            <a href="#action-hub" class="btn-secondary" id="btn-hero-action">
+              <span id="hero-btn-rights">Korean Ballot & Voting Rights</span>
+            </a>
+          </div>
+
+          <div class="hero-quick-stats">
+            <div class="stat-item">
+              <h4 id="stat-pop">1.9M+</h4>
+              <p id="stat-pop-label">Korean Americans</p>
+            </div>
+            <div class="stat-item">
+              <h4 id="stat-turnout">65%+</h4>
+              <p id="stat-turnout-label">Turnout Momentum</p>
+            </div>
+            <div class="stat-item">
+              <h4 id="stat-rights">§ 203</h4>
+              <p id="stat-rights-label">VRA Language Rights</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card-frame">
+            <img src="assets/hero-banner.jpg" alt="Korean American Voters of all generations participating in democracy" width="600" height="340" id="hero-banner-img">
+            <div class="hero-card-caption">
+              <div class="caption-tag">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <span id="hero-caption-text">Democracy Strengthens When We Participate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Value Pillars -->
+    <section class="pillars-section" id="pillars">
+      <div class="container pillars-grid">
+        <div class="pillar-card" id="pillar-1">
+          <div class="pillar-icon" aria-hidden="true">⚖️</div>
+          <h3 id="pillar-1-title">Nuanced & Balanced</h3>
+          <p id="pillar-1-desc">Directly explores controversial topics—affirmative action, retail crime, taxes, and military alliances—with honest perspectives from all viewpoints without bias.</p>
+        </div>
+        <div class="pillar-card" id="pillar-2">
+          <div class="pillar-icon" aria-hidden="true">🇰🇷</div>
+          <h3 id="pillar-2-title">Rooted in Korean American Reality</h3>
+          <p id="pillar-2-desc">Tailored to immigrant family sacrifices, small business ownership, bilingual eldercare, and foreign policy ties to the Korean Peninsula.</p>
+        </div>
+        <div class="pillar-card" id="pillar-3">
+          <div class="pillar-icon" aria-hidden="true">🗳️</div>
+          <h3 id="pillar-3-title">Empowerment to Action</h3>
+          <p id="pillar-3-desc">Provides actionable voter registration, mail-in ballot guides, legal rights to Korean ballots under Section 203, and customized voting summaries.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Quiz Section -->
+    <section class="quiz-section" id="quiz-app">
+      <div class="container">
+        
+        <!-- QUIZ CONTAINER -->
+        <div class="quiz-container" id="quiz-box">
+          <div class="quiz-header">
+            <div class="quiz-top-bar">
+              <span class="quiz-step-badge" id="quiz-step-badge">Question 1 of 10</span>
+              <span class="quiz-category-tag" id="quiz-category-tag">Education & Merit</span>
+            </div>
+            <div class="progress-track" aria-label="Quiz progress">
+              <div class="progress-fill" id="quiz-progress-bar" style="width: 10%;"></div>
+            </div>
+          </div>
+
+          <!-- Question Body -->
+          <div class="question-card" id="question-card">
+            <span class="question-topic" id="question-topic-badge">Affirmative Action & Standardized Testing</span>
+            <h2 class="question-title" id="question-title-text">College Admissions & Meritocracy</h2>
+
+            <!-- Korean American Community Context Drawer -->
+            <div class="context-box" id="context-box">
+              <div class="context-header">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="16" x2="12" y2="12"/>
+                  <line x1="12" y1="8" x2="12.01" y2="8"/>
+                </svg>
+                <span id="context-header-label">Why This Matters to Korean Americans</span>
+              </div>
+              <p class="context-text" id="context-text-content">
+                In landmark cases (like SFFA v. Harvard), Asian American students were at the center of the debate over whether race-conscious admissions unfairly penalize high-achieving Asian applicants versus fostering broader campus diversity.
+              </p>
+            </div>
+
+            <!-- Statement Box -->
+            <div class="question-statement-box">
+              <p class="question-statement" id="question-statement-text">
+                "University admissions should be strictly based on academic merit, standardized test scores, and extracurricular achievements, without considering race or ethnic diversity."
+              </p>
+            </div>
+
+            <!-- 5-Point Choice Scale -->
+            <div class="choice-scale-wrap" role="radiogroup" aria-labelledby="question-statement-text">
+              <div class="choice-options-row">
+                <button type="button" class="choice-btn" data-val="-2" id="choice-opt-sd" role="radio" aria-checked="false">
+                  <span class="choice-icon">🛑</span>
+                  <span class="choice-label" id="label-sd">Strongly Disagree</span>
+                  <span class="choice-sub" id="sub-sd">적극 반대</span>
+                </button>
+                <button type="button" class="choice-btn" data-val="-1" id="choice-opt-d" role="radio" aria-checked="false">
+                  <span class="choice-icon">👎</span>
+                  <span class="choice-label" id="label-d">Somewhat Disagree</span>
+                  <span class="choice-sub" id="sub-d">대체로 반대</span>
+                </button>
+                <button type="button" class="choice-btn" data-val="0" id="choice-opt-n" role="radio" aria-checked="false">
+                  <span class="choice-icon">⚖️</span>
+                  <span class="choice-label" id="label-n">Neutral / Complicated</span>
+                  <span class="choice-sub" id="sub-n">중립 / 복합적</span>
+                </button>
+                <button type="button" class="choice-btn" data-val="1" id="choice-opt-a" role="radio" aria-checked="false">
+                  <span class="choice-icon">👍</span>
+                  <span class="choice-label" id="label-a">Somewhat Agree</span>
+                  <span class="choice-sub" id="sub-a">대체로 찬성</span>
+                </button>
+                <button type="button" class="choice-btn" data-val="2" id="choice-opt-sa" role="radio" aria-checked="false">
+                  <span class="choice-icon">🎯</span>
+                  <span class="choice-label" id="label-sa">Strongly Agree</span>
+                  <span class="choice-sub" id="sub-sa">적극 찬성</span>
+                </button>
+              </div>
+
+              <!-- Perspective Summary Cards -->
+              <div class="sides-comparison">
+                <div class="side-mini-card side-agree">
+                  <div class="side-title" id="side-agree-title">Arguments in Favor (Agree)</div>
+                  <div class="side-desc" id="side-agree-desc">Eliminates racial quotas and unfair standards; rewards hard work and academic excellence regardless of background.</div>
+                </div>
+                <div class="side-mini-card side-disagree">
+                  <div class="side-title" id="side-disagree-title">Arguments in Opposition (Disagree)</div>
+                  <div class="side-desc" id="side-disagree-desc">Ensures campuses reflect societal diversity; accounts for systemic disadvantages and historical inequities.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Priority Weighting -->
+            <div class="priority-toggle-row">
+              <div class="priority-label-group">
+                <h4 id="priority-heading">How important is this issue to your vote?</h4>
+                <p id="priority-subtext">Weights this policy higher in your final alignment calculation</p>
+              </div>
+              <div class="priority-pills">
+                <button type="button" class="btn-priority" data-weight="0.5" id="btn-pri-low">Low</button>
+                <button type="button" class="btn-priority active" data-weight="1.0" id="btn-pri-std">Standard</button>
+                <button type="button" class="btn-priority" data-weight="1.5" id="btn-pri-high">High Priority ⭐</button>
+              </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="quiz-nav-row">
+              <button type="button" class="btn-secondary" id="btn-quiz-prev" disabled>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                <span id="btn-prev-text">Previous</span>
+              </button>
+              
+              <button type="button" class="btn-primary" id="btn-quiz-next">
+                <span id="btn-next-text">Next Question</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- RESULTS WRAPPER (Shown upon completion) -->
+        <div class="results-wrapper" id="results-dashboard">
+          <div class="results-header-banner">
+            <div class="results-super-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <span id="res-badge-text">Your Personalized Voter Alignment Profile</span>
+            </div>
+            <h2 class="results-title" id="res-title-text">Where You Stand on Key Issues</h2>
+            <p id="res-subtitle-text" style="color: var(--text-secondary); max-width: 650px; margin: 0 auto;">Based on your responses to 10 core controversial issues shaping Korean American lives today.</p>
+
+            <div class="results-archetype-box" id="res-archetype-card">
+              <div class="archetype-title" id="archetype-title">Pragmatic Business Moderate</div>
+              <p class="archetype-desc" id="archetype-desc">Strong believer in small business autonomy and low taxes, paired with open-minded social views.</p>
+            </div>
+          </div>
+
+          <!-- Party Match Cards Grid -->
+          <div class="alignment-cards-grid">
+            <!-- Democratic -->
+            <div class="alignment-card dem" id="card-match-dem">
+              <div class="alignment-card-top">
+                <span class="party-badge-pill" id="badge-party-dem">Democratic Party</span>
+                <span class="match-percentage-number" id="match-dem-pct">0%</span>
+              </div>
+              <div class="match-meter-bar">
+                <div class="match-meter-fill" id="meter-dem-fill" style="width: 0%;"></div>
+              </div>
+              <p class="party-summary-text" id="summary-party-dem">
+                Emphasizes social equity, accessible healthcare expansion, civil rights, DACA protection, and government-supported eldercare and anti-Asian hate prevention.
+              </p>
+            </div>
+
+            <!-- Republican -->
+            <div class="alignment-card rep" id="card-match-rep">
+              <div class="alignment-card-top">
+                <span class="party-badge-pill" id="badge-party-rep">Republican Party</span>
+                <span class="match-percentage-number" id="match-rep-pct">0%</span>
+              </div>
+              <div class="match-meter-bar">
+                <div class="match-meter-fill" id="meter-rep-fill" style="width: 0%;"></div>
+              </div>
+              <p class="party-summary-text" id="summary-party-rep">
+                Prioritizes small business tax relief, deregulation, merit-based test admissions, tough-on-crime police funding, border security, and traditional family heritage.
+              </p>
+            </div>
+
+            <!-- Independent / Moderate -->
+            <div class="alignment-card ind" id="card-match-ind">
+              <div class="alignment-card-top">
+                <span class="party-badge-pill" id="badge-party-ind">Independent / Pragmatist</span>
+                <span class="match-percentage-number" id="match-ind-pct">0%</span>
+              </div>
+              <div class="match-meter-bar">
+                <div class="match-meter-fill" id="meter-ind-fill" style="width: 0%;"></div>
+              </div>
+              <p class="party-summary-text" id="summary-party-ind">
+                Focuses on fiscal prudence, anti-inflation measures, common-sense public safety, personal liberties, and bipartisan immigration & healthcare solutions.
+              </p>
+            </div>
+          </div>
+
+          <!-- Multi-Axis Breakdown -->
+          <div class="axes-breakdown-section">
+            <div class="section-inner-header">
+              <h3 id="axes-heading">6 Key Policy Dimensions</h3>
+              <p id="axes-subheading">Your personal leanings on specific issues compared to standard political philosophies</p>
+            </div>
+
+            <!-- Economy Axis -->
+            <div class="axis-row">
+              <div class="axis-meta-top">
+                <span id="axis-name-econ">💼 Small Business & Economy</span>
+                <span id="axis-val-econ" style="color: #60a5fa;">Balanced</span>
+              </div>
+              <div class="axis-bipolar-track">
+                <div class="axis-center-line"></div>
+                <div class="axis-pointer" id="pointer-econ" style="left: 50%;"></div>
+              </div>
+              <div class="axis-labels-bottom">
+                <span id="axis-left-econ">Worker Safety Net & Regulation</span>
+                <span id="axis-right-econ">Tax Cuts & Market Autonomy</span>
+              </div>
+            </div>
+
+            <!-- Safety Axis -->
+            <div class="axis-row">
+              <div class="axis-meta-top">
+                <span id="axis-name-safety">🛡️ Public Safety & Crime</span>
+                <span id="axis-val-safety" style="color: #f87171;">Balanced</span>
+              </div>
+              <div class="axis-bipolar-track">
+                <div class="axis-center-line"></div>
+                <div class="axis-pointer" id="pointer-safety" style="left: 50%;"></div>
+              </div>
+              <div class="axis-labels-bottom">
+                <span id="axis-left-safety">Systemic Reform & Diversion</span>
+                <span id="axis-right-safety">Police Patrols & Strict Penalties</span>
+              </div>
+            </div>
+
+            <!-- Education Axis -->
+            <div class="axis-row">
+              <div class="axis-meta-top">
+                <span id="axis-name-edu">🎓 Education & Meritocracy</span>
+                <span id="axis-val-edu" style="color: #34d399;">Balanced</span>
+              </div>
+              <div class="axis-bipolar-track">
+                <div class="axis-center-line"></div>
+                <div class="axis-pointer" id="pointer-edu" style="left: 50%;"></div>
+              </div>
+              <div class="axis-labels-bottom">
+                <span id="axis-left-edu">Holistic Equity & Campus Diversity</span>
+                <span id="axis-right-edu">Strict Standardized Testing & Merit</span>
+              </div>
+            </div>
+
+            <!-- Foreign Policy Axis -->
+            <div class="axis-row">
+              <div class="axis-meta-top">
+                <span id="axis-name-foreign">🌐 U.S.–ROK Alliance & Defense</span>
+                <span id="axis-val-foreign" style="color: #a78bfa;">Balanced</span>
+              </div>
+              <div class="axis-bipolar-track">
+                <div class="axis-center-line"></div>
+                <div class="axis-pointer" id="pointer-foreign" style="left: 50%;"></div>
+              </div>
+              <div class="axis-labels-bottom">
+                <span id="axis-left-foreign">Diplomatic Dialogue & Peace Focus</span>
+                <span id="axis-right-foreign">Military Drills & Strong Deterrence</span>
+              </div>
+            </div>
+
+            <!-- Immigration Axis -->
+            <div class="axis-row">
+              <div class="axis-meta-top">
+                <span id="axis-name-imm">🗽 Immigration & Borders</span>
+                <span id="axis-val-imm" style="color: #fbbf24;">Balanced</span>
+              </div>
+              <div class="axis-bipolar-track">
+                <div class="axis-center-line"></div>
+                <div class="axis-pointer" id="pointer-imm" style="left: 50%;"></div>
+              </div>
+              <div class="axis-labels-bottom">
+                <span id="axis-left-imm">DACA Relief & Family Visas</span>
+                <span id="axis-right-imm">Border Enforcement & Merit Visas</span>
+              </div>
+            </div>
+
+            <!-- Values Axis -->
+            <div class="axis-row">
+              <div class="axis-meta-top">
+                <span id="axis-name-values">⚖️ Social Values & Civil Rights</span>
+                <span id="axis-val-values" style="color: #f472b6;">Balanced</span>
+              </div>
+              <div class="axis-bipolar-track">
+                <div class="axis-center-line"></div>
+                <div class="axis-pointer" id="pointer-values" style="left: 50%;"></div>
+              </div>
+              <div class="axis-labels-bottom">
+                <span id="axis-left-values">Individual Freedom & Reproductive Rights</span>
+                <span id="axis-right-values">Traditional Family & Faith Heritage</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Side-by-side Matrix -->
+          <div class="platform-matrix-section">
+            <div class="section-inner-header">
+              <h3 id="matrix-heading">Side-by-Side: Where the Parties Stand on Korean American Issues</h3>
+              <p id="matrix-subheading">Official platform stances on the topics that matter most to our community</p>
+            </div>
+            
+            <div class="matrix-table-wrap">
+              <table class="matrix-table" id="platform-table">
+                <thead>
+                  <tr>
+                    <th id="th-issue">Issue Area</th>
+                    <th id="th-dem" style="color: #60a5fa;">Democratic Party</th>
+                    <th id="th-rep" style="color: #f87171;">Republican Party</th>
+                  </tr>
+                </thead>
+                <tbody id="matrix-table-body">
+                  <!-- Dynamically populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Actions & Print -->
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+            <button type="button" class="btn-primary" id="btn-print-ballot">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 6 2 18 2 18 9"/>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                <rect x="6" y="14" width="12" height="8"/>
+              </svg>
+              <span id="btn-print-text">Print / Save My Voting Cheat Sheet</span>
+            </button>
+
+            <button type="button" class="btn-secondary" id="btn-retake-quiz">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="1 4 1 10 7 10"/>
+                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+              </svg>
+              <span id="btn-retake-text">Adjust My Answers</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VOTER EMPOWERMENT & ACTION HUB -->
+    <section class="action-hub-section" id="action-hub">
+      <div class="container">
+        <div class="section-inner-header" style="text-align: center; margin-bottom: 3rem;">
+          <div class="hero-badge" style="margin: 0 auto 1rem;">
+            <span>🗳️</span>
+            <span id="hub-super-badge">Voter Action & Legal Rights Hub</span>
+          </div>
+          <h2 style="font-size: 2.35rem; font-weight: 800; margin-bottom: 0.5rem;" id="hub-main-title">Make Your Voice Heard on Election Day</h2>
+          <p style="color: var(--text-secondary); max-width: 680px; margin: 0 auto;" id="hub-main-desc">
+            Having an opinion matters only when you cast your ballot. Here is everything you need to register, request Korean-language voting materials, and commit to vote.
+          </p>
+        </div>
+
+        <div class="action-grid">
+          <!-- Card 1: Section 203 Language Rights -->
+          <div class="action-card" id="action-rights-card">
+            <div class="action-card-header">
+              <div class="action-icon-circle blue">🇰🇷</div>
+              <div>
+                <h3 id="rights-card-title">Korean Ballot Legal Rights (§203)</h3>
+                <span style="font-size: 0.78rem; color: var(--text-muted);" id="rights-card-tag">Federal Voting Rights Act</span>
+              </div>
+            </div>
+            <p id="rights-card-desc">
+              Under federal law, counties with sizable Korean-speaking populations must provide ballots, sample voting guides, and election workers fluent in Korean.
+            </p>
+            <ul class="action-list" id="rights-counties-list">
+              <li><strong>California:</strong> Los Angeles County, Orange County</li>
+              <li><strong>New York:</strong> Queens County (New York City)</li>
+              <li><strong>New Jersey:</strong> Bergen County</li>
+              <li><strong>Georgia:</strong> Gwinnett County (Metro Atlanta)</li>
+              <li><strong>Virginia:</strong> Fairfax County (Metro Washington DC)</li>
+              <li><strong>Illinois:</strong> Cook County (Chicago area)</li>
+            </ul>
+            <div style="background: rgba(59, 130, 246, 0.08); border-radius: var(--radius-sm); padding: 0.85rem 1rem; border-left: 3px solid #3b82f6; font-size: 0.85rem; color: var(--text-secondary);" id="rights-tip-box">
+              <strong id="rights-tip-title">Voter Tip:</strong> <span id="rights-tip-text">You can legally bring any bilingual family member or friend into the booth to translate for you, as long as they are not your boss or union leader.</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Voter Registration Check -->
+          <div class="action-card" id="action-reg-card">
+            <div class="action-card-header">
+              <div class="action-icon-circle emerald">✅</div>
+              <div>
+                <h3 id="reg-card-title">Verify or Register to Vote</h3>
+                <span style="font-size: 0.78rem; color: var(--text-muted);" id="reg-card-tag">Takes less than 2 minutes</span>
+              </div>
+            </div>
+            <p id="reg-card-desc">
+              Voter registration deadlines vary by state. If you have moved, changed your name, or recently became a naturalized U.S. citizen, check your active status now.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 1.5rem;">
+              <a href="https://www.vote.org/am-i-registered-to-vote/" target="_blank" rel="noopener noreferrer" class="btn-primary" id="btn-check-reg" style="justify-content: center;">
+                <span id="btn-check-reg-text">Check Your Registration Status (Vote.org)</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                </svg>
+              </a>
+              <a href="https://www.vote.org/register-to-vote/" target="_blank" rel="noopener noreferrer" class="btn-secondary" id="btn-new-reg" style="justify-content: center;">
+                <span id="btn-new-reg-text">Register as a New Voter</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                </svg>
+              </a>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted);" id="reg-note">
+              Links direct you to official, certified nonpartisan national registration databases.
+            </p>
+          </div>
+
+          <!-- Card 3: Mail-in / Absentee Ballots -->
+          <div class="action-card" id="action-mail-card">
+            <div class="action-card-header">
+              <div class="action-icon-circle amber">📬</div>
+              <div>
+                <h3 id="mail-card-title">Mail-In & Absentee Ballots</h3>
+                <span style="font-size: 0.78rem; color: var(--text-muted);" id="mail-card-tag">Vote from Home</span>
+              </div>
+            </div>
+            <p id="mail-card-desc">
+              Many states like California automatically send ballots by mail to all active registered voters, while other states require requesting an absentee ballot ahead of time.
+            </p>
+            <ul class="action-list" id="mail-checklist">
+              <li><strong>Sign your envelope:</strong> Always match the signature on your Driver's License/ID.</li>
+              <li><strong>Postmark deadline:</strong> Mail your ballot several days before election day or drop it in an official county drop-box.</li>
+              <li><strong>Track your ballot:</strong> Use tools like "Where's My Ballot" in CA/CO/WA to receive SMS alerts when your vote is counted.</li>
+            </ul>
+            <a href="https://www.vote.org/absentee-ballot/" target="_blank" rel="noopener noreferrer" class="btn-secondary" id="btn-mail-ballot" style="margin-top: auto; justify-content: center;">
+              <span id="btn-mail-text">Request Absentee Ballot</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Card 4: Pledge to Vote -->
+          <div class="action-card" id="action-pledge-card">
+            <div class="action-card-header">
+              <div class="action-icon-circle purple">🎖️</div>
+              <div>
+                <h3 id="pledge-card-title">Pledge to Vote (투표 서약)</h3>
+                <span style="font-size: 0.78rem; color: var(--text-muted);" id="pledge-card-tag">Community Commitment</span>
+              </div>
+            </div>
+            <p id="pledge-card-desc">
+              Studies prove that voters who make a conscious, written commitment are 80% more likely to vote. Make your pledge and download a proud civic badge!
+            </p>
+
+            <form class="pledge-box" id="form-pledge" onsubmit="return false;">
+              <div class="pledge-input-row">
+                <input type="text" id="input-pledge-name" class="pledge-input" placeholder="Your Name or Initial (이름)" required>
+                <button type="submit" class="btn-primary" id="btn-submit-pledge">
+                  <span id="btn-pledge-text">I Pledge</span>
+                </button>
+              </div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);" id="pledge-help">
+                Join over 12,400 Korean Americans pledging to strengthen our community's voice.
+              </div>
+
+              <!-- Certificate Display -->
+              <div class="pledge-certificate-wrap" id="pledge-cert-box">
+                <div class="cert-seal">🇰🇷🇺🇸</div>
+                <div class="cert-name" id="cert-display-name">Korean American Voter</div>
+                <div class="cert-text" id="cert-display-text">has officially pledged to exercise their sacred constitutional right to vote in the upcoming election.</div>
+                <div style="margin-top: 1rem; font-weight: 700; color: #f59e0b; font-size: 0.82rem;" id="cert-slogan">"투표하는 한인이 강한 커뮤니티를 만듭니다"</div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand" style="margin-bottom: 0.5rem;">
+            <div class="brand-emblem" style="width: 30px; height: 30px;">✓</div>
+            <span style="font-weight: 800; color: var(--text-primary);">KA Voter Hub</span>
+          </div>
+          <p id="footer-mission-text">
+            A nonpartisan, community-focused initiative dedicated to elevating Korean American civic engagement, voter turnout, and political literacy across the United States.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5 id="footer-nav-title">Navigation</h5>
+          <ul class="footer-links">
+            <li><a href="#hero" id="fl-home">Home</a></li>
+            <li><a href="#quiz-app" id="fl-quiz">Issues Compass</a></li>
+            <li><a href="#action-hub" id="fl-rights">Voting Rights (§203)</a></li>
+            <li><a href="#action-hub" id="fl-pledge">Pledge to Vote</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5 id="footer-partners-title">Civic Partners</h5>
+          <ul class="footer-links">
+            <li><a href="https://www.vote.org" target="_blank" rel="noopener">Vote.org</a></li>
+            <li><a href="https://www.eac.gov" target="_blank" rel="noopener">U.S. Election Assistance Commission</a></li>
+            <li><a href="https://www.justice.gov/crt/language-minority-citizens" target="_blank" rel="noopener">DOJ Section 203 Info</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div id="footer-copy">© 2026 Korean American Voter Hub. Dedicated to the Korean American Community. Nonpartisan Educational Resource.</div>
+        <div style="display: flex; gap: 1rem;">
+          <a href="#hero" style="color: var(--color-blue);" id="btn-back-top">↑ Top</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

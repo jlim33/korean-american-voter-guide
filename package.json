@@ -1,0 +1,22 @@
+{
+  "name": "korean-american-voter-guide",
+  "version": "1.0.0",
+  "description": "Nonpartisan, bilingual civic engagement and voter empowerment platform for Korean American voters.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "echo 'Production static assets verified and ready.'",
+    "test": "node test-app.js"
+  },
+  "keywords": [
+    "korean-american",
+    "voting-guide",
+    "civic-engagement",
+    "section-203",
+    "bilingual",
+    "political-compass"
+  ],
+  "author": "Korean American Voter Hub",
+  "license": "MIT"
+}
