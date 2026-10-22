@@ -46,6 +46,14 @@
           <span id="theme-toggle-icon" aria-hidden="true">🌙</span>
         </button>
 
+        <!-- Quick Links -->
+        <a href="#candidates-hub" class="btn-control" id="btn-nav-candidates" style="display: inline-flex;">
+          <span id="nav-candidates-text">Candidates</span>
+        </a>
+        <a href="#bayarea-hub" class="btn-control" id="btn-nav-bayarea" style="display: inline-flex;">
+          <span id="nav-bayarea-text">🌉 Bay Area</span>
+        </a>
+
         <!-- Quick Jump to Quiz -->
         <a href="#quiz-app" class="btn-primary" id="btn-nav-quiz">
           <span id="nav-quiz-text">Start Quiz</span>
@@ -471,6 +479,83 @@
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <!-- KEY CANDIDATES & CONTROVERSIAL TOPICS SECTION -->
+    <section class="candidates-section" id="candidates-hub">
+      <div class="container">
+        <div class="section-inner-header" style="text-align: center; margin-bottom: 2.5rem;">
+          <div class="hero-badge" style="margin: 0 auto 1rem;">
+            <span>👥</span>
+            <span id="cand-super-badge">Candidate Positions on Key Controversies</span>
+          </div>
+          <h2 style="font-size: 2.35rem; font-weight: 800; margin-bottom: 0.5rem;" id="cand-main-title">Where Candidates Stand on Korean American Priorities</h2>
+          <p style="color: var(--text-secondary); max-width: 680px; margin: 0 auto;" id="cand-main-desc">
+            Direct stances on affirmative action, retail crime & public safety, small business tax relief, US-ROK defense deterrence, and immigration.
+          </p>
+        </div>
+
+        <!-- Filter Pills -->
+        <div class="candidate-filters">
+          <button type="button" class="btn-cand-filter active" data-filter="all" id="cand-filter-all">All Candidates (전체 후보)</button>
+          <button type="button" class="btn-cand-filter" data-filter="senate" id="cand-filter-senate">CA U.S. Senate (Schiff vs Garvey)</button>
+          <button type="button" class="btn-cand-filter" data-filter="ca16" id="cand-filter-ca16">CA-16 Silicon Valley (Liccardo vs Low)</button>
+          <button type="button" class="btn-cand-filter" data-filter="korean" id="cand-filter-korean">Korean American Leaders (Young Kim, Andy Kim)</button>
+        </div>
+
+        <!-- Dynamic Candidate Cards Grid -->
+        <div class="candidates-grid" id="candidates-grid-container">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- BAY AREA ZIP CODE VOTER EXPLORER SECTION -->
+    <section class="bayarea-section" id="bayarea-hub">
+      <div class="container">
+        <div class="bayarea-card">
+          <div class="section-inner-header" style="text-align: center; margin-bottom: 2rem;">
+            <div class="hero-badge" style="margin: 0 auto 1rem;">
+              <span>🌉</span>
+              <span id="bay-super-badge">Bay Area Korean American Voter Guide</span>
+            </div>
+            <h2 style="font-size: 2.35rem; font-weight: 800; margin-bottom: 0.5rem;" id="bay-main-title">Find Your Bay Area District & Voting Centers</h2>
+            <p style="color: var(--text-secondary); max-width: 680px; margin: 0 auto;" id="bay-main-desc">
+              Search by your Bay Area 5-digit zip code or city name to identify local congressional districts, assigned official ballot drop boxes, and Korean language voter services.
+            </p>
+          </div>
+
+          <!-- Search Input Bar -->
+          <div class="zip-search-box">
+            <div class="zip-input-wrap">
+              <span style="font-size: 1.25rem; margin-right: 0.5rem;" aria-hidden="true">🔍</span>
+              <input type="text" id="input-bayarea-zip" class="zip-input" placeholder="Enter Bay Area Zip (e.g., 95051, 95014, Fremont, 94118...)" aria-label="Search Bay Area Zip Code">
+              <button type="button" class="btn-primary" id="btn-search-zip" style="padding: 0.5rem 1.15rem; font-size: 0.85rem;">
+                <span id="btn-zip-search-text">Search</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Quick Chip Buttons -->
+          <div class="zip-quick-chips">
+            <button type="button" class="chip-btn" data-zip="95051">95051 (Santa Clara Koreatown)</button>
+            <button type="button" class="chip-btn" data-zip="95014">95014 (Cupertino Tech Hub)</button>
+            <button type="button" class="chip-btn" data-zip="95129">95129 (West San Jose)</button>
+            <button type="button" class="chip-btn" data-zip="94086">94086 (Sunnyvale)</button>
+            <button type="button" class="chip-btn" data-zip="94539">94539 (Fremont / Mission San Jose)</button>
+            <button type="button" class="chip-btn" data-zip="94609">94609 (Oakland Koreatown)</button>
+            <button type="button" class="chip-btn" data-zip="94118">94118 (San Francisco Richmond)</button>
+            <button type="button" class="chip-btn" data-zip="94582">94582 (San Ramon / Tri-Valley)</button>
+            <button type="button" class="chip-btn" data-zip="94401">94401 (San Mateo Peninsula)</button>
+            <button type="button" class="chip-btn" data-zip="94301">94301 (Palo Alto / Stanford)</button>
+          </div>
+
+          <!-- Dynamic Result Display -->
+          <div class="zip-result-display" id="bayarea-result-container">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
       </div>
     </section>
 

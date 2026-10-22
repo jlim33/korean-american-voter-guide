@@ -114,13 +114,43 @@ document.addEventListener('DOMContentLoaded', () => {
       certText: "has officially pledged to exercise their sacred constitutional right to vote in the upcoming election.",
       certSlogan: "\"A Korean American community that votes is a community that is respected.\"",
       footerMission: "A nonpartisan, community-focused initiative dedicated to elevating Korean American civic engagement, voter turnout, and political literacy across the United States.",
-      footerCopy: "© 2026 Korean American Voter Hub. Dedicated to the Korean American Community. Nonpartisan Educational Resource."
+      footerCopy: "© 2026 Korean American Voter Hub. Dedicated to the Korean American Community. Nonpartisan Educational Resource.",
+      navCandidates: "Candidates",
+      navBayarea: "🌉 Bay Area",
+      candBadge: "Candidate Positions on Key Controversies",
+      candTitle: "Where Candidates Stand on Korean American Priorities",
+      candDesc: "Direct stances on affirmative action, retail crime & public safety, small business tax relief, US-ROK defense deterrence, and immigration.",
+      candFilterAll: "All Candidates (전체 후보)",
+      candFilterSenate: "CA U.S. Senate (Schiff vs Garvey)",
+      candFilterCA16: "CA-16 Silicon Valley (Liccardo vs Low)",
+      candFilterKorean: "Korean American Leaders (Young Kim, Andy Kim)",
+      bayBadge: "Bay Area Korean American Voter Guide",
+      bayTitle: "Find Your Bay Area District & Voting Centers",
+      bayDesc: "Search by your Bay Area 5-digit zip code or city name to identify local congressional districts, assigned official ballot drop boxes, and Korean language voter services.",
+      bayPlaceholder: "Enter Bay Area Zip (e.g., 95051, 95014, Fremont, 94118...)",
+      btnZipSearch: "Search",
+      btnOfficialRov: "Official County ROV Portal"
     },
     ko: {
       langBtn: "English",
       brandMain: "한인 유권자 나침반",
       brandSub: "KA Voter Hub",
       navQuiz: "테스트 시작",
+      navCandidates: "주요 후보별 공약",
+      navBayarea: "🌉 베이지역 가이드",
+      candBadge: "주요 후보별 핵심 쟁점 정책 및 입장",
+      candTitle: "한인 커뮤니티 핵심 현안에 대한 후보자들의 입장",
+      candDesc: "대입 어퍼머티브 액션, 소매 절도 처벌(Prop 36), 소상공인 감세, 한미동맹 억지력 및 이민 정책에 대한 후보자별 공식 정견.",
+      candFilterAll: "전체 후보 (All Candidates)",
+      candFilterSenate: "캘리포니아 연방 상원 (쉬프 vs 가비)",
+      candFilterCA16: "CA-16 실리콘밸리 (리카르도 vs 로우)",
+      candFilterKorean: "대표 한국계 연방 의원 (영 김, 앤디 김)",
+      bayBadge: "샌프란시스코 베이지역 한인 유권자 가이드",
+      bayTitle: "베이지역 우편 투표함 및 관할 선거구 찾기",
+      bayDesc: "베이지역 5자리 우편번호(Zip Code)나 도시 이름을 입력하시면 관할 연방 하원/주 의회 선거구, 공식 투표 센터, 한인 드롭박스 및 한국어 지원을 안내해 드립니다.",
+      bayPlaceholder: "우편번호 또는 도시 입력 (예: 95051, 95014, 쿠퍼티노, 산호세...)",
+      btnZipSearch: "검색",
+      btnOfficialRov: "카운티 선거관리국(ROV) 공식 사이트",
       heroBadge: "초당적 재미 한인 유권자 권익 & 투표 독려 플랫폼",
       heroTitle: "우리의 목소리, 우리의 뿌리:",
       heroTitleHighlight: "명확한 소신으로 투표하십시오",
@@ -287,12 +317,238 @@ document.addEventListener('DOMContentLoaded', () => {
     // Refresh current question in new language
     renderQuestion(quiz.currentQuestionIndex);
 
-    // Refresh platform table and results if active
+    document.getElementById('nav-candidates-text').textContent = t.navCandidates;
+    document.getElementById('nav-bayarea-text').textContent = t.navBayarea;
+
+    document.getElementById('cand-super-badge').textContent = t.candBadge;
+    document.getElementById('cand-main-title').textContent = t.candTitle;
+    document.getElementById('cand-main-desc').textContent = t.candDesc;
+    document.getElementById('cand-filter-all').textContent = t.candFilterAll;
+    document.getElementById('cand-filter-senate').textContent = t.candFilterSenate;
+    document.getElementById('cand-filter-ca16').textContent = t.candFilterCA16;
+    document.getElementById('cand-filter-korean').textContent = t.candFilterKorean;
+
+    document.getElementById('bay-super-badge').textContent = t.bayBadge;
+    document.getElementById('bay-main-title').textContent = t.bayTitle;
+    document.getElementById('bay-main-desc').textContent = t.bayDesc;
+    document.getElementById('input-bayarea-zip').placeholder = t.bayPlaceholder;
+    document.getElementById('btn-zip-search-text').textContent = t.btnZipSearch;
+
+    // Refresh platform table, candidates, bay area, and results if active
     renderPlatformTable();
+    renderCandidates(currentCandFilter);
+    renderZipResult(currentZipQuery);
     if (resultsDashboard.classList.contains('active')) {
       renderResults();
     }
   }
+
+  // State for Candidate and Bay Area tools
+  let currentCandFilter = 'all';
+  let currentZipQuery = '95051';
+
+  // --- CANDIDATE POLICIES RENDERING ---
+  function renderCandidates(filter = 'all') {
+    currentCandFilter = filter;
+    const container = document.getElementById('candidates-grid-container');
+    if (!container) return;
+
+    container.innerHTML = '';
+    const allCandidates = VOTER_DATA.candidates || [];
+
+    const filtered = allCandidates.filter(c => {
+      if (filter === 'all') return true;
+      if (filter === 'senate') return c.id === 'schiff' || c.id === 'garvey';
+      if (filter === 'ca16') return c.id === 'liccardo' || c.id === 'low';
+      if (filter === 'korean') return c.id === 'young_kim' || c.id === 'andy_kim';
+      return true;
+    });
+
+    const topicTitles = {
+      affirmative_action: currentLang === 'ko' ? '대입 입시 & 능력주의' : 'Affirmative Action & Merit',
+      public_safety: currentLang === 'ko' ? '치안 & 상점 절도(Prop 36)' : 'Public Safety & Retail Crime',
+      small_business_tax: currentLang === 'ko' ? '소상공인 세제 & 규제' : 'Small Business Taxes & Wages',
+      us_korea_alliance: currentLang === 'ko' ? '한미동맹 & 대북 억제' : 'U.S.–ROK Alliance & Defense',
+      immigration_reform: currentLang === 'ko' ? '이민 정책 & DACA' : 'Immigration & Dreamers'
+    };
+
+    filtered.forEach(cand => {
+      const card = document.createElement('div');
+      card.className = `candidate-card ${cand.party}`;
+
+      const avatarEmoji = cand.party === 'dem' ? '🔵' : '🔴';
+      const partyPill = cand.party === 'dem' ? (currentLang === 'ko' ? '민주당' : 'Democrat') : (currentLang === 'ko' ? '공화당' : 'Republican');
+
+      let stancesHtml = '';
+      for (const [topicKey, stanceData] of Object.entries(cand.stances)) {
+        const topicLabel = topicTitles[topicKey] || topicKey;
+        const verdict = currentLang === 'ko' ? stanceData.stanceKo : stanceData.stanceEn;
+        const detail = currentLang === 'ko' ? stanceData.detailKo : stanceData.detailEn;
+
+        stancesHtml += `
+          <div class="stance-pill-box">
+            <div class="stance-topic-header">
+              <span class="stance-topic-title">${topicLabel}</span>
+              <span class="stance-verdict-tag">${verdict}</span>
+            </div>
+            <p class="stance-detail-text">${detail}</p>
+          </div>
+        `;
+      }
+
+      card.innerHTML = `
+        <div class="candidate-header">
+          <div class="candidate-avatar">${avatarEmoji}</div>
+          <div class="candidate-info">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.2rem;">
+              <span class="candidate-race-badge">${currentLang === 'ko' ? cand.raceKo : cand.raceEn}</span>
+              <span class="party-badge-pill" style="font-size: 0.72rem; padding: 0.15rem 0.5rem;">${partyPill}</span>
+            </div>
+            <h4>${currentLang === 'ko' ? cand.nameKo : cand.nameEn}</h4>
+            <div class="candidate-tagline">${currentLang === 'ko' ? cand.taglineKo : cand.taglineEn}</div>
+          </div>
+        </div>
+        <p class="candidate-bio">${currentLang === 'ko' ? cand.bioKo : cand.bioEn}</p>
+        <div class="candidate-stances-list">
+          <h5 style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.25rem;">
+            ${currentLang === 'ko' ? '주요 쟁점별 공식 입장' : 'Official Issue Stances on Controversies'}
+          </h5>
+          ${stancesHtml}
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+  }
+
+  // Filter Buttons Event
+  const filterBtns = document.querySelectorAll('.btn-cand-filter');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderCandidates(btn.dataset.filter);
+    });
+  });
+
+  // --- BAY AREA ZIP CODE EXPLORER RENDERING ---
+  function renderZipResult(query) {
+    currentZipQuery = query ? query.trim() : '95051';
+    const container = document.getElementById('bayarea-result-container');
+    if (!container) return;
+
+    const zipList = VOTER_DATA.bayAreaZipCodes || [];
+    const qLower = currentZipQuery.toLowerCase();
+
+    // Find match by 5-digit zip or city name
+    const match = zipList.find(z => z.zip === currentZipQuery || z.city.toLowerCase().includes(qLower));
+
+    if (match) {
+      const hubText = currentLang === 'ko' ? match.koreanHubKo : match.koreanHubEn;
+      const centerText = currentLang === 'ko' ? match.voteCenterKo : match.voteCenterEn;
+      const dropText = currentLang === 'ko' ? match.dropBoxKo : match.dropBoxEn;
+
+      container.innerHTML = `
+        <div class="zip-result-header">
+          <div class="zip-title-group">
+            <h3>📍 ${match.city}, CA ${match.zip} (${match.county})</h3>
+            <div class="zip-hub-badge">
+              <span>🇰🇷</span>
+              <span>${hubText}</span>
+            </div>
+          </div>
+          <a href="${match.countyRovUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">
+            <span>${UI_TEXT[currentLang].btnOfficialRov}</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="zip-details-grid">
+          <div class="zip-detail-item">
+            <h5>${currentLang === 'ko' ? '관할 선거구' : 'Electoral Districts'}</h5>
+            <p style="color: #60a5fa;">${match.district}</p>
+            <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem;">
+              State Senate: ${match.stateSenate} | State Assembly: ${match.stateAssembly}
+            </div>
+          </div>
+
+          <div class="zip-detail-item">
+            <h5>${currentLang === 'ko' ? '지정 공식 투표 센터' : 'Official Voting Center'}</h5>
+            <p>${centerText}</p>
+            <div style="font-size: 0.78rem; color: #34d399; margin-top: 0.2rem;">
+              ${currentLang === 'ko' ? '✓ 조기 투표 및 선거일 당일 투표 가능' : '✓ Early voting & Election day open'}
+            </div>
+          </div>
+
+          <div class="zip-detail-item">
+            <h5>${currentLang === 'ko' ? '가까운 공식 우편투표함 (Drop Box)' : 'Official 24/7 Drop Box'}</h5>
+            <p>${dropText}</p>
+            <div style="font-size: 0.78rem; color: #fbbf24; margin-top: 0.2rem;">
+              ${currentLang === 'ko' ? '✓ 우표 불필요, 상시 투함 가능' : '✓ No postage required, 24/7 drive-thru'}
+            </div>
+          </div>
+        </div>
+
+        <div style="background: rgba(59, 130, 246, 0.08); border-radius: var(--radius-sm); padding: 0.85rem 1rem; border-left: 3px solid #3b82f6; font-size: 0.85rem;">
+          <strong style="color: #60a5fa;">${currentLang === 'ko' ? '한국어 통역 및 투표용지 지원:' : 'Language Access Rights:'}</strong> 
+          <span style="color: var(--text-secondary);">${match.languageSupport}</span>
+        </div>
+      `;
+    } else {
+      container.innerHTML = `
+        <div style="text-align: center; padding: 2rem 1rem;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔍</div>
+          <h4 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">
+            ${currentLang === 'ko' ? `"${currentZipQuery}"에 대한 검색 결과가 없습니다.` : `No direct record found for "${currentZipQuery}".`}
+          </h4>
+          <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 1.5rem; font-size: 0.9rem;">
+            ${currentLang === 'ko' ? '베이지역 내 5자리 우편번호(예: 95051, 95014, 94539, 94609, 94118) 또는 대표 도시 이름을 입력해 보세요.' : 'Try entering a 5-digit Bay Area zip (e.g., 95051, 95014, 94539, 94609, 94118) or click one of the quick chips above.'}
+          </p>
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.65rem;">
+            <a href="https://rovservices.sccgov.org/" target="_blank" rel="noopener" class="btn-control">Santa Clara County ROV</a>
+            <a href="https://www.acgov.org/rov/" target="_blank" rel="noopener" class="btn-control">Alameda County ROV</a>
+            <a href="https://sfelections.sfgov.org/" target="_blank" rel="noopener" class="btn-control">San Francisco Elections</a>
+            <a href="https://www.smcacre.gov/elections" target="_blank" rel="noopener" class="btn-control">San Mateo County</a>
+            <a href="https://www.contracostavote.gov/" target="_blank" rel="noopener" class="btn-control">Contra Costa County</a>
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  // Zip Search Event Handlers
+  const zipInput = document.getElementById('input-bayarea-zip');
+  const btnZipSearch = document.getElementById('btn-search-zip');
+  const zipChips = document.querySelectorAll('.chip-btn');
+
+  if (btnZipSearch && zipInput) {
+    btnZipSearch.addEventListener('click', () => {
+      renderZipResult(zipInput.value);
+    });
+
+    zipInput.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') {
+        renderZipResult(zipInput.value);
+      }
+    });
+  }
+
+  zipChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const zip = chip.dataset.zip;
+      if (zipInput) zipInput.value = zip;
+      renderZipResult(zip);
+    });
+  });
+
+  // Initial Load
+  updateLanguage('en');
+  renderPlatformTable();
+  renderCandidates('all');
+  renderZipResult('95051');
+});
 
   langToggleBtn.addEventListener('click', () => {
     updateLanguage(currentLang === 'en' ? 'ko' : 'en');

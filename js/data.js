@@ -402,7 +402,439 @@ const VOTER_DATA = {
         narrative: "치열한 하원, 상원 및 로컬 선거에서는 수백 표 차이로 승패가 갈립니다. 한인들의 높은 투표율은 정치인들이 우리 커뮤니티의 세탁소/소상공인 보호, 한국어 시니어 복지, 노인 아파트, 치안 유지, 한미동맹 법안을 소홀히 다루지 못하게 만드는 가장 강력한 힘입니다."
       }
     }
-  }
+  },
+
+  // Bay Area Zip Codes Database for Korean American Voters
+  bayAreaZipCodes: [
+    {
+      zip: "95051",
+      city: "Santa Clara",
+      county: "Santa Clara County",
+      koreanHubEn: "Silicon Valley Koreatown (El Camino Real / Lawrence Square)",
+      koreanHubKo: "실리콘밸리 코리아타운 (엘카미노 리얼 / 로렌스 상권)",
+      district: "CA-17 (U.S. House)",
+      stateSenate: "SD-10",
+      stateAssembly: "AD-25",
+      voteCenterEn: "Santa Clara Central Park Pavilion & Community Center",
+      voteCenterKo: "산타클라라 센트럴 파크 파빌리온 투표 센터",
+      dropBoxEn: "Lawrence Square Shopping Center / Moonlite Plaza",
+      dropBoxKo: "로렌스 스퀘어 쇼핑센터 / 문라이트 플라자 투표함",
+      countyRovUrl: "https://rovservices.sccgov.org/",
+      languageSupport: "Korean (한국어), English, Spanish, Vietnamese, Chinese, Tagalog"
+    },
+    {
+      zip: "95014",
+      city: "Cupertino",
+      county: "Santa Clara County",
+      koreanHubEn: "Cupertino Tech Corridor & Top School District Hub",
+      koreanHubKo: "쿠퍼티노 테크 기업 본사 및 명문 학군 중심지",
+      district: "CA-16 (U.S. House - Liccardo vs Low)",
+      stateSenate: "SD-13",
+      stateAssembly: "AD-26",
+      voteCenterEn: "Cupertino City Hall / Quinlan Community Center",
+      voteCenterKo: "쿠퍼티노 시청 / 퀸란 커뮤니티 센터",
+      dropBoxEn: "De Anza College Registration Plaza",
+      dropBoxKo: "디 안자 칼리지 등록 플라자 투표함",
+      countyRovUrl: "https://rovservices.sccgov.org/",
+      languageSupport: "Korean (한국어), English, Chinese, Spanish, Vietnamese"
+    },
+    {
+      zip: "95129",
+      city: "San Jose (West)",
+      county: "Santa Clara County",
+      koreanHubEn: "West San Jose / Lynbrook & Saratoga Border",
+      koreanHubKo: "웨스트 산호세 / 린브룩 및 사라토가 인접 학군",
+      district: "CA-16 (U.S. House)",
+      stateSenate: "SD-15",
+      stateAssembly: "AD-26",
+      voteCenterEn: "Calabazas Branch Library / West Gate Center",
+      voteCenterKo: "칼라바자스 도서관 / 웨스트게이트 센터",
+      dropBoxEn: "Westgate Center Parking Plaza Drop Box",
+      dropBoxKo: "웨스트게이트 센터 야외 공식 드롭박스",
+      countyRovUrl: "https://rovservices.sccgov.org/",
+      languageSupport: "Korean, English, Vietnamese, Spanish, Chinese"
+    },
+    {
+      zip: "94086",
+      city: "Sunnyvale",
+      county: "Santa Clara County",
+      koreanHubEn: "Sunnyvale El Camino Corridor / Korean Restaurants & Clinics",
+      koreanHubKo: "서니베일 엘카미노 상권 / 한인 병원 및 식당 밀집지",
+      district: "CA-17 (U.S. House)",
+      stateSenate: "SD-13",
+      stateAssembly: "AD-26",
+      voteCenterEn: "Sunnyvale Public Library / Community Center",
+      voteCenterKo: "서니베일 공립 도서관 / 커뮤니티 센터",
+      dropBoxEn: "Sunnyvale Heritage Park Drop Box",
+      dropBoxKo: "서니베일 헤리티지 파크 공식 드롭박스",
+      countyRovUrl: "https://rovservices.sccgov.org/",
+      languageSupport: "Korean, English, Spanish, Chinese, Tagalog"
+    },
+    {
+      zip: "94539",
+      city: "Fremont",
+      county: "Alameda County",
+      koreanHubEn: "Mission San Jose / East Bay Tech & High Academic Community",
+      koreanHubKo: "미션 산호세 / 이스트베이 IT 전문직 및 한인 가정",
+      district: "CA-14 (U.S. House)",
+      stateSenate: "SD-10",
+      stateAssembly: "AD-24",
+      voteCenterEn: "Fremont Adult School & Ohlone College",
+      voteCenterKo: "프리몬트 성인학교 및 올로니 칼리지 투표소",
+      dropBoxEn: "Mission San Jose Community Center",
+      dropBoxKo: "미션 산호세 커뮤니티 센터 공식 투표함",
+      countyRovUrl: "https://www.acgov.org/rov/",
+      languageSupport: "Korean, English, Chinese, Tagalog, Vietnamese, Spanish"
+    },
+    {
+      zip: "94609",
+      city: "Oakland",
+      county: "Alameda County",
+      koreanHubEn: "Oakland Koreatown (Telegraph Ave Cultural Corridor)",
+      koreanHubKo: "오클랜드 코리아타운 (텔레그래프 에비뉴 문화 상권)",
+      district: "CA-12 (U.S. House)",
+      stateSenate: "SD-09",
+      stateAssembly: "AD-18",
+      voteCenterEn: "Rockridge Branch Library / Telegraph Ave Polling Center",
+      voteCenterKo: "락리지 도서관 / 텔레그래프 가 투표 센터",
+      dropBoxEn: "Koreatown Telegraph Community Plaza Drop Box",
+      dropBoxKo: "코리아타운 텔레그래프 플라자 공식 드롭박스",
+      countyRovUrl: "https://www.acgov.org/rov/",
+      languageSupport: "Korean, English, Spanish, Chinese, Vietnamese"
+    },
+    {
+      zip: "94118",
+      city: "San Francisco",
+      county: "San Francisco County",
+      koreanHubEn: "Inner Richmond / Geary Blvd Korean Commercial Corridor",
+      koreanHubKo: "이너 리치몬드 / 기어리 블러바드 한인 상권",
+      district: "CA-11 (U.S. House)",
+      stateSenate: "SD-11",
+      stateAssembly: "AD-19",
+      voteCenterEn: "San Francisco City Hall Voting Center / Richmond Rec Center",
+      voteCenterKo: "샌프란시스코 시청 중앙 투표 센터 / 리치몬드 센터",
+      dropBoxEn: "Richmond Branch Library (9th & Geary)",
+      dropBoxKo: "리치몬드 도서관 (9번가 & 기어리) 공식 드롭박스",
+      countyRovUrl: "https://sfelections.sfgov.org/",
+      languageSupport: "Korean, English, Chinese, Spanish, Filipino"
+    },
+    {
+      zip: "94582",
+      city: "San Ramon",
+      county: "Contra Costa County",
+      koreanHubEn: "Dougherty Valley / Tri-Valley Family Community",
+      koreanHubKo: "도허티 밸리 / 트라이밸리 신흥 한인 가족 밀집지",
+      district: "CA-10 (U.S. House)",
+      stateSenate: "SD-07",
+      stateAssembly: "AD-16",
+      voteCenterEn: "Dougherty Station Community Center & Library",
+      voteCenterKo: "도허티 스테이션 커뮤니티 센터 및 도서관",
+      dropBoxEn: "San Ramon City Hall Central Drop Box",
+      dropBoxKo: "산라몬 시청 중앙 공식 드롭박스",
+      countyRovUrl: "https://www.contracostavote.gov/",
+      languageSupport: "English, Spanish, Chinese, Korean translation available upon request"
+    },
+    {
+      zip: "94401",
+      city: "San Mateo",
+      county: "San Mateo County",
+      koreanHubEn: "San Mateo Peninsula Transit Hub & Downtown",
+      koreanHubKo: "샌마테오 반도 교통 요충지 및 다운타운",
+      district: "CA-15 (U.S. House)",
+      stateSenate: "SD-13",
+      stateAssembly: "AD-21",
+      voteCenterEn: "San Mateo County Elections Center / Martin Luther King Center",
+      voteCenterKo: "샌마테오 카운티 선거 관리 센터 / MLK 커뮤니티 센터",
+      dropBoxEn: "San Mateo Main Library Drop Box",
+      dropBoxKo: "샌마테오 메인 도서관 공식 드롭박스",
+      countyRovUrl: "https://www.smcacre.gov/elections",
+      languageSupport: "English, Spanish, Chinese, Korean, Tagalog"
+    },
+    {
+      zip: "94301",
+      city: "Palo Alto",
+      county: "Santa Clara County",
+      koreanHubEn: "Stanford University & University Avenue Innovation Corridor",
+      koreanHubKo: "스탠퍼드 대학교 및 유니버시티 가 혁신 지구",
+      district: "CA-16 (U.S. House)",
+      stateSenate: "SD-13",
+      stateAssembly: "AD-23",
+      voteCenterEn: "Palo Alto Art Center & Rinconada Library",
+      voteCenterKo: "팔로알토 아트 센터 및 린코나다 도서관",
+      dropBoxEn: "Palo Alto City Hall Drop Box",
+      dropBoxKo: "팔로알토 시청 앞 공식 투표함",
+      countyRovUrl: "https://rovservices.sccgov.org/",
+      languageSupport: "Korean, English, Chinese, Spanish"
+    }
+  ],
+
+  // Key Candidates Profile & Controversial Issue Stances
+  candidates: [
+    {
+      id: "schiff",
+      nameEn: "Adam Schiff",
+      nameKo: "아담 쉬프 (Adam Schiff)",
+      party: "dem",
+      raceEn: "U.S. Senate (California)",
+      raceKo: "캘리포니아주 연방 상원의원 선거",
+      taglineEn: "Democratic Nominee, U.S. Representative (CA-30)",
+      taglineKo: "민주당 후보, 전 하원 정보위원장",
+      bioEn: "Veteran congressman and former federal prosecutor known for national security oversight, civil rights protections, and judicial integrity.",
+      bioKo: "검사 출신의 중진 연방 하원의원으로 국가 안보, 시민 권익 보호, 사법 체계 개혁을 중점적으로 추진해 온 민주당 후보입니다.",
+      stances: {
+        affirmative_action: {
+          stanceEn: "Pro-Diversity & Holistic Review",
+          stanceKo: "소수인종 포용 및 다면 평가 지지",
+          detailEn: "Criticized the Supreme Court ruling ending affirmative action; supports race-conscious and socio-economic equity in higher education.",
+          detailKo: "대법원의 어퍼머티브 액션 위헌 판결을 비판하며 고등교육 내 사회경제적·인종적 다양성 확보 정책을 지지합니다."
+        },
+        public_safety: {
+          stanceEn: "Balanced Reform & Federal Anti-Hate Funding",
+          stanceKo: "사법 개혁 및 아시안 혐오범죄 방지 예산 확충",
+          detailEn: "Supports strong federal prosecution of anti-Asian hate crimes; champions community-oriented policing and gun safety laws rather than mass incarceration.",
+          detailKo: "아시아계 대상 혐오범죄 연방 수사 강화를 지원하며, 무조건적 엄벌보다 지역 밀착형 치안과 총기 안전법 제정을 지지합니다."
+        },
+        small_business_tax: {
+          stanceEn: "Targeted Relief with Corporate Accountability",
+          stanceKo: "소상공인 맞춤 지원 및 대기업 공정 과세",
+          detailEn: "Proposes targeted tax credits for small businesses while raising corporate income tax rates and closing multinational loopholes.",
+          detailKo: "영세 소상공인에 대한 맞춤형 세제 혜택을 제공하되, 대기업 법인세 인상과 다국적 기업 조세 회피 방지를 주장합니다."
+        },
+        us_korea_alliance: {
+          stanceEn: "Ironclad ROK Deterrence & Trilateral Alliance",
+          stanceKo: "철통같은 한미동맹 억지력 및 한미일 공조",
+          detailEn: "Staunch defender of the US-ROK Mutual Defense Treaty and trilateral cooperation with Japan; supports deterrence against North Korean aggression.",
+          detailKo: "한미 상호방위조약과 한미일 3각 안보 공조를 강력히 지지하며, 북한 핵 위협에 맞선 철통같은 억제력 유지를 강조합니다."
+        },
+        immigration_reform: {
+          stanceEn: "DACA Protection & Legal Pathways",
+          stanceKo: "한인 드리머(DACA) 구제 및 합법 시민권 경로",
+          detailEn: "Co-sponsored the Dream Act; advocates for comprehensive immigration reform, reducing visa backlogs, and humane border processing.",
+          detailKo: "드림 법안을 공동 발의했으며, DACA 청년 보호, 비자 적체 해소, 성실한 미등록 이민자에 대한 시민권 취득 경로를 지지합니다."
+        }
+      }
+    },
+    {
+      id: "garvey",
+      nameEn: "Steve Garvey",
+      nameKo: "스티브 가비 (Steve Garvey)",
+      party: "rep",
+      raceEn: "U.S. Senate (California)",
+      raceKo: "캘리포니아주 연방 상원의원 선거",
+      taglineEn: "Republican Nominee, Former MLB All-Star & Businessman",
+      taglineKo: "공화당 후보, 전 LA 다저스 올스타 및 사업가",
+      bioEn: "Former Major League Baseball MVP (Dodgers/Padres) and businessman running on a platform of crime reduction, small business deregulation, and meritocracy.",
+      bioKo: "LA 다저스 전설의 야구 스타 출신 기업인으로, 치안 회복, 소상공인 감세 및 규제 철폐, 능력주의 교육 수호를 기치로 내건 공화당 후보입니다.",
+      stances: {
+        affirmative_action: {
+          stanceEn: "Strict Meritocracy & Colorblind Admissions",
+          stanceKo: "철저한 시험 중심 능력주의 및 역차별 금지",
+          detailEn: "Fully supports the Supreme Court ruling ending affirmative action; argues that Asian Americans have faced unfair quotas and deserve pure merit evaluation.",
+          detailKo: "대법원의 어퍼머티브 액션 폐지를 적극 환영하며, 아시안 학생들이 역차별 없이 오직 학업 실력과 노력으로 평가받아야 한다고 주장합니다."
+        },
+        public_safety: {
+          stanceEn: "Tough on Retail Theft (Prop 36) & Police Support",
+          stanceKo: "상점 절도 처벌 대폭 강화(Prop 36) 및 경찰 전폭 지원",
+          detailEn: "Vocal supporter of Prop 36 to repeal key portions of Prop 47; demands felony charges for repeat retail theft and increased funding for local police departments.",
+          detailKo: "상점 절도를 처벌하는 캘리포니아 주민발의안 36을 전폭 지지하며, 상습 절도범 중벌 처벌과 경찰 예산 확충을 최우선 공약으로 삼고 있습니다."
+        },
+        small_business_tax: {
+          stanceEn: "Pro-Business Tax Cuts & Regulatory Relief",
+          stanceKo: "소상공인 법인세 감면 및 영업 규제 철폐",
+          detailEn: "Pledges to cut commercial taxes, ease compliance red tape on immigrant dry cleaners and retail merchants, and oppose federal minimum wage mandates.",
+          detailKo: "자영업자 및 소상공인의 세금 부담을 줄이고 세탁소·식당 등 영세 사업장을 옥죄는 과도한 환경·고용 행정 규제를 폐지하겠다고 공약했습니다."
+        },
+        us_korea_alliance: {
+          stanceEn: "Peace Through Strength & Maximum Pressure",
+          stanceKo: "힘을 통한 평화 및 대북 최대 압박",
+          detailEn: "Believes in maintaining decisive military superiority in East Asia, robust deterrence drills with South Korea, and demanding equitable defense burden-sharing.",
+          detailKo: "군사적 우위를 통한 확고한 대북 억제와 연합 훈련을 지지하며, 동맹국과의 공정한 방위비 분담을 바탕으로 한 강력한 안보를 강조합니다."
+        },
+        immigration_reform: {
+          stanceEn: "Border Enforcement First & Merit Visas",
+          stanceKo: "국경 통제 최우선 및 기술 전문인력 이민",
+          detailEn: "Demands securing the southern border and strict enforcement before discussing status adjustments; supports expanding high-skilled H-1B/EB visas.",
+          detailKo: "불법 입국 차단과 국경 통제가 선행되어야 한다고 보며, 미국 경제에 기여하는 합법적 고급 기술 전문직 비자 확대를 우선합니다."
+        }
+      }
+    },
+    {
+      id: "liccardo",
+      nameEn: "Sam Liccardo",
+      nameKo: "샘 리카르도 (Sam Liccardo)",
+      party: "dem",
+      raceEn: "U.S. House (CA-16 Silicon Valley)",
+      raceKo: "연방 하원의원 선거 (CA-16 실리콘밸리 / 쿠퍼티노)",
+      taglineEn: "Former Mayor of San Jose (Centrist Democrat)",
+      taglineKo: "전 산호세 시장 (중도 실용 민주당)",
+      bioEn: "Former two-term Mayor of San Jose focused on fiscal pragmatism, tech innovation, housing, and public safety enforcement in the heart of Silicon Valley.",
+      bioKo: "실리콘밸리의 심장인 산호세 시장을 연임하며 테크 혁신, 소상공인 실용주의, 주택 공급 및 상권 치안 강화를 주도한 중도 성향 민주당 후보입니다.",
+      stances: {
+        affirmative_action: {
+          stanceEn: "Merit-Based STEM Support & Socioeconomic Focus",
+          stanceKo: "능력주의 STEM 투자 및 소득 기반 배려 조화",
+          detailEn: "Advocates for robust STEM funding and high academic standards; emphasizes economic opportunity over pure racial categories.",
+          detailKo: "학업 성취도와 STEM 과학 교육 표준을 중시하며, 인종 대신 저소득 취약 계층의 기회 확대를 지향하는 실용적 입장입니다."
+        },
+        public_safety: {
+          stanceEn: "Endorsed Prop 36 Retail Theft Crackdown",
+          stanceKo: "상점 절도 처벌 강화 주민발의안 36 공식 지지",
+          detailEn: "Broke with party progressives to actively endorse California Prop 36, arguing that urban small business owners cannot survive rampant organized retail theft.",
+          detailKo: "당내 진보파와 달리 소매 절도 처벌 강화를 위한 주민발의안 36을 공식 지지하며, 한인 소상공인 등 자영업자 보호를 강조했습니다."
+        },
+        small_business_tax: {
+          stanceEn: "Entrepreneurial Incentives & Anti-Inflation",
+          stanceKo: "스타트업·소상공인 세제 지원 및 인플레이션 억제",
+          detailEn: "Supports simplifying small business tax codes and cutting red tape for commercial leaseholders and family-owned enterprises.",
+          detailKo: "창업 생태계와 지역 소상공인을 위한 세제 간소화, 상업용 임차인 지원 및 정부 재정 낭비 축소를 주장합니다."
+        },
+        us_korea_alliance: {
+          stanceEn: "High-Tech Supply Chain & ROK Semiconductor Ties",
+          stanceKo: "반도체·배터리 한미 첨단 공급망 동맹 강화",
+          detailEn: "Focuses on semiconductor and battery manufacturing partnerships between South Korea and Silicon Valley, paired with firm defense treaties.",
+          detailKo: "실리콘밸리와 한국의 반도체 및 첨단 배터리 공급망 협력을 중시하며, 굳건한 한미 군사 동맹을 전폭 지지합니다."
+        },
+        immigration_reform: {
+          stanceEn: "High-Skill Green Cards & Dreamer Relief",
+          stanceKo: "고급 인재 영주권 쿼터 확대 및 드리머 구제",
+          detailEn: "Champions expanding high-skilled immigrant visas (H-1B, STEM green cards) while providing permanent legal residency for DACA Dreamers.",
+          detailKo: "실리콘밸리 기술 경쟁력을 위한 STEM 고급 인력 이민 쿼터 확대와 함께 한인 청년 DACA 드리머의 영주권 부여를 지지합니다."
+        }
+      }
+    },
+    {
+      id: "low",
+      nameEn: "Evan Low",
+      nameKo: "에반 로우 (Evan Low)",
+      party: "dem",
+      raceEn: "U.S. House (CA-16 Silicon Valley)",
+      raceKo: "연방 하원의원 선거 (CA-16 실리콘밸리 / 쿠퍼티노)",
+      taglineEn: "Former State Assemblymember & Legislative LGBTQ Caucus Chair",
+      taglineKo: "전 캘리포니아 주 하원의원, 아시안 의원 모임 리더",
+      bioEn: "Longtime state lawmaker, former Campbell Mayor, and prominent champion of civil rights, labor protections, and anti-Asian hate prevention measures.",
+      bioKo: "최연소 시장 및 주 하원의원을 역임한 아시아계 중진으로, 아시아계 혐오범죄 방지법 제정과 노동자 권익 보호에 앞장서 온 진보 민주당 후보입니다.",
+      stances: {
+        affirmative_action: {
+          stanceEn: "Holistic Review & Educational Inclusivity",
+          stanceKo: "포용적 교육 기회 및 다면 평가 지지",
+          detailEn: "Supports holistic university admissions that promote diversity; advocates for heavy state investments in public university capacity so all qualifying students get seats.",
+          detailKo: "캠퍼스 다양성과 포용적 입학 사정을 지지하며, 주립대 정원을 대폭 늘려 우수한 아시안 학생들이 탈락하지 않도록 공공 투자를 확대해야 한다고 봅니다."
+        },
+        public_safety: {
+          stanceEn: "Authored Landmark Anti-Asian Hate Legislation",
+          stanceKo: "아시안 대상 혐오범죄 방지법안 대표 발의",
+          detailEn: "Author of key California legislation protecting Asian Americans from hate incidents (AB 1801, AB 2448); advocates for community safety combined with restorative justice.",
+          detailKo: "캘리포니아 아시안 혐오범죄 예방 및 피해자 지원 법안을 다수 제정했으며, 경찰력 증원과 함께 범죄 예방을 위한 지역사회 투자를 강조합니다."
+        },
+        small_business_tax: {
+          stanceEn: "Worker Protections & Living Wage Subsidies",
+          stanceKo: "근로자 최저임금 보장 및 영세 소상공인 보조금",
+          detailEn: "Prioritizes minimum wage increases, paid family medical leave, and state grants for diverse minority-owned small businesses.",
+          detailKo: "근로자들의 생활 임금과 유급 병가를 보장하고, 소수계 영세 소상공인에 대한 주 정부 차원의 직접 보조금 지원을 지지합니다."
+        },
+        us_korea_alliance: {
+          stanceEn: "Diplomatic Peace Alliances & Human Rights",
+          stanceKo: "한미동맹 수호 및 북한 인권·이산가족 상봉",
+          detailEn: "Supports the mutual defense pact and values-based democratic alliances, emphasizing humanitarian dialogue and divided family reunions.",
+          detailKo: "민주주의 가치를 공유하는 한미동맹을 수호하며, 재미 한인 이산가족 상봉 등 인도주의적 외교 노력을 병행해야 한다고 봅니다."
+        },
+        immigration_reform: {
+          stanceEn: "Comprehensive Citizenship Pathways & Family Visas",
+          stanceKo: "포괄적 이민 개혁 및 가족 초청 비자 대기 단축",
+          detailEn: "Strong supporter of immediate citizenship for DACA Dreamers, clearing family-based visa backlogs, and protecting immigrant rights.",
+          detailKo: "DACA 드리머의 시민권 취득을 최우선 과제로 삼고, 장기간 적체된 가족 초청 비자 승인을 신속히 처리해야 한다는 입장입니다."
+        }
+      }
+    },
+    {
+      id: "young_kim",
+      nameEn: "Young Kim",
+      nameKo: "영 김 (Young Kim)",
+      party: "rep",
+      raceEn: "U.S. House (CA-40 Southern California)",
+      raceKo: "연방 하원의원 선거 (CA-40 남가주 / 오렌지카운티)",
+      taglineEn: "U.S. Representative & Chair of Indo-Pacific Subcommittee",
+      taglineKo: "연방 하원의원, 인도·태평양 소위원장 (한국계)",
+      bioEn: "One of the first Korean American women elected to Congress; national leader on small business advocacy and U.S.-ROK foreign relations.",
+      bioKo: "미주 한인 여성 최초로 연방 하원에 입성한 대표적 한인 정치인으로, 하원 외교위 인도태평양 소위원장으로서 한미 안보 및 소상공인 정책을 주도하고 있습니다.",
+      stances: {
+        affirmative_action: {
+          stanceEn: "Champion of Academic Merit & Equality",
+          stanceKo: "학업 실력에 따른 공정한 능력주의 수호",
+          detailEn: "Staunch opponent of race-conscious college admissions; praised the Supreme Court ruling as a monumental victory for Asian American student equality.",
+          detailKo: "대학 입시의 인종 기준 적용에 결연히 반대해 왔으며, 대법원의 위헌 결정을 아시안 학생들의 피땀 어린 노력을 지켜낸 역사적 승리로 평가했습니다."
+        },
+        public_safety: {
+          stanceEn: "Tough on Retail Theft & Defending Law Enforcement",
+          stanceKo: "소매 절도 엄단 및 경찰 예산 확충",
+          detailEn: "Campaigned vigorously against smash-and-grab shoplifting that plagues small businesses; advocates for federal grants to local police and stricter bail laws.",
+          detailKo: "자영업자를 위협하는 상점 털이와 소매 절도를 엄단하기 위한 법안을 주도하며, 경찰 예산 삭감에 반대하고 현장 경찰관들을 전폭 지원합니다."
+        },
+        small_business_tax: {
+          stanceEn: "Extending Tax Cuts & Regulatory Relief",
+          stanceKo: "소상공인 세금 감면 연장 및 규제 완화",
+          detailEn: "Fights to make federal small business tax deductions permanent; opposes burdensome employer mandates that strain immigrant family enterprises.",
+          detailKo: "소상공인 20% 소득공제 법안의 영구화를 추진하며, 가족 단위 자영업자의 생계를 위협하는 과도한 고용 및 세무 규제 철폐에 앞장서고 있습니다."
+        },
+        us_korea_alliance: {
+          stanceEn: "Leading Architect of Nuclear Deterrence on ROK",
+          stanceKo: "한미 확장억제(핵우산) 및 대북 제재 선봉",
+          detailEn: "Chairwoman of the House Indo-Pacific Subcommittee; spearheaded bipartisan legislation bolstering the US-ROK defense alliance and North Korean human rights.",
+          detailKo: "하원 인도태평양 소위원장으로서 한미 상호방위 및 확장억제 공약을 입법화하고, 대북 제재 유지와 북한 인권 개선 법안을 주도적으로 통과시켰습니다."
+        },
+        immigration_reform: {
+          stanceEn: "Legal System Modernization & Border Security",
+          stanceKo: "국경 안보 확립 및 합법 이민 시스템 정상화",
+          detailEn: "Co-sponsored the America's CHILDREN Act to protect documented Dreamers; advocates for secure borders while fixing long legal visa processing delays.",
+          detailKo: "합법 비자 체류 자녀(합법 드리머) 추방 방지법을 공동 발의했으며, 국경 보안을 강화하면서 지연된 합법 이민 절차를 정상화해야 한다고 봅니다."
+        }
+      }
+    },
+    {
+      id: "andy_kim",
+      nameEn: "Andy Kim",
+      nameKo: "앤디 김 (Andy Kim)",
+      party: "dem",
+      raceEn: "U.S. Senate (National / NJ)",
+      raceKo: "연방 상원의원 선거 (최초의 한국계 연방 상원의원)",
+      taglineEn: "First Korean American U.S. Senator in History",
+      taglineKo: "미국 역사상 최초의 한국계 연방 상원의원",
+      bioEn: "Rhodes Scholar and former White House National Security Council director; celebrated national public servant dedicated to ethical governance and healthcare access.",
+      bioKo: "로즈 장학생 및 백악관 국가안보회의(NSC) 이라크 담당 보좌관 출신으로, 1월 6일 의사당 쓰레기를 줍는 모습으로 큰 감동을 준 대표적 한국계 지도자입니다.",
+      stances: {
+        affirmative_action: {
+          stanceEn: "Invest in Public Higher Education Access",
+          stanceKo: "공립 고등교육 확대 및 공정한 사다리 복원",
+          detailEn: "Supports opening university doors widely through tuition-free community college and federal Pell Grant expansions so admission is not a zero-sum game.",
+          detailKo: "입시 경쟁이 제로섬 게임이 되지 않도록 펠그랜트 학자금 지원을 확대하고 커뮤니티 칼리지 무상화를 통해 모든 학생에게 기회의 사다리를 넓혀야 한다고 봅니다."
+        },
+        public_safety: {
+          stanceEn: "Community Anti-Hate & Federal Law Enforcement",
+          stanceKo: "아시안 혐오범죄 방지 및 경찰 투명성·지원",
+          detailEn: "Co-sponsored the COVID-19 Hate Crimes Act protecting Asian Americans; supports federal resources for local law enforcement with transparent accountability.",
+          detailKo: "아시아계 대상 혐오범죄 방지법 통과에 앞장섰으며, 지역 경찰관에 대한 충분한 장비 지원과 함께 투명한 공권력 집행을 지지합니다."
+        },
+        small_business_tax: {
+          stanceEn: "Main Street Investments over Corporate Loopholes",
+          stanceKo: "골목 상권 소상공인 집중 지원 및 대기업 감세 축소",
+          detailEn: "Advocates for affordable capital loans for immigrant entrepreneurs while ensuring giant corporations pay a fair share in taxes.",
+          detailKo: "이민자 소상공인을 위한 저금리 운영 자금 대출과 골목 상권 살리기를 지원하며, 대기업에 대한 불필요한 세금 특혜 폐지를 주장합니다."
+        },
+        us_korea_alliance: {
+          stanceEn: "National Security Expert on Strong US-ROK Alliance",
+          stanceKo: "외교 안보 전문가의 정밀한 한미동맹 발전 전략",
+          detailEn: "Leverages deep national security expertise to strengthen the US-ROK mutual defense treaty, modernizing deterrence while advocating for divided family reunions.",
+          detailKo: "외교 안보 전문가로서 한미동맹의 전략적 깊이를 더하고, 억지력을 유지하면서도 70년 넘게 헤어진 재미 한인 이산가족 상봉 법안을 적극 통과시켰습니다."
+        },
+        immigration_reform: {
+          stanceEn: "Dream Act Champion & Dignity for Immigrants",
+          stanceKo: "드림 법안 수호 및 이민자 존엄성 보장",
+          detailEn: "Son of immigrant parents who champions path to legal status for Dreamers, fixing visa backlogs, and treating asylum seekers with human dignity.",
+          detailKo: "소아마비를 딛고 일어선 이민 1세대 부모의 아들로서, 한인 청년 DACA 드리머의 영주권 부여와 합법 비자 발급 지연 해소를 강력히 촉구하고 있습니다."
+        }
+      }
+    }
+  ]
 };
 
 if (typeof module !== 'undefined' && module.exports) {
